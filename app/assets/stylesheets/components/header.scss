@@ -2,5 +2,30 @@
   display: flex;
   width: 1240px;
   height: 450px;
-  background-image: url("hero_background.jpg")
+  background-image: url("hero_background.jpg");
+  margin: 0 auto;
+}
+
+.hero-logo {
+  display: block;
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  width: 184px;
+  height: 46px;
+  background-image: url("logo_white.png");
+  background-repeat: no-repeat;
+  background-position: 13px 0px;
+  // background-size: 48px 22px;
+
+  &:after {
+    display: inline-block;
+    position: absolute;
+    left: 60px;
+    background-image: url("soundcloud_white.png");
+    background-repeat: no-repeat;
+    content: "";
+    height: 100%;
+    width: 100%;
+  }
 }
