@@ -1,7 +1,10 @@
 import React from 'react';
+import NavbarContainer from './header/navbar_container';
 
 const App = () => (
-  <h1>Hello, and welcome to SoundStorm!</h1>
+  <div>
+    <NavbarContainer />
+  </div>
 );
 
 export default App;
