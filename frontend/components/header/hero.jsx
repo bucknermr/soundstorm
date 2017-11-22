@@ -28,7 +28,9 @@ class Hero extends React.Component {
             Discover, stream, and share a constantly expanding mix of music
             from emerging and major artists around the world.
           </p>
-          <button>Sign up for free</button>
+          <button onClick={() => showModal('signup')}>
+            Sign up for free
+          </button>
         </div>
       </div>
     );

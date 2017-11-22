@@ -11,6 +11,8 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(field) {
@@ -25,7 +27,7 @@ class SessionForm extends React.Component {
 
   handleClick(e) {
     if (e.target === e.currentTarget) {
-      this.props.hideMidal();
+      this.props.hideModal();
     }
   }
 
@@ -37,34 +39,40 @@ class SessionForm extends React.Component {
     return (
       <div
         className="session-modal"
-
+        onClick={this.handleClick}
         >
         <form className="session-form" onSubmit={this.handleSubmit} >
-          <label>Email:
-            <input
-              onChange={this.handleChange('email')}
-              type='text'
-              value={email}
-              placeholder='email'
-            />
-          </label>
-          <label>Band or Artist Name:
-            <input
-              onChange={this.handleChange('name')}
-              type='text'
-              value={name}
-              placeholder='Band or Artist Name'
-            />
-          </label>
-          <label>Password:
-            <input
-              onChange={this.handleChange('password')}
-              type='password'
-              value={password}
-              placeholder='Password'
-            />
-          </label>
-          <button type="submit">{submitValue}</button>
+          <input
+            className="input-text-large"
+            type='text'
+            value={email}
+            placeholder='Your email address *'
+            onChange={this.handleChange('email')}
+          />
+          {
+            formType === 'signup' ? (
+              <input
+                className="input-text-large"
+                type='text'
+                value={name}
+                placeholder='Band, artist, or display name *'
+                onChange={this.handleChange('name')}
+              />
+            ) : null
+          }
+          <input
+            className="input-text-large"
+            type='password'
+            value={password}
+            placeholder='Password *'
+            onChange={this.handleChange('password')}
+          />
+          <button
+            className="orange-button"
+            type="submit"
+            >
+            {submitValue}
+          </button>
         </form>
       </div>
     );
