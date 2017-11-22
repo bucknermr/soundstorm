@@ -1,0 +1,13 @@
+@import 'fonts.scss';
+@import 'colors.scss';
+
+body {
+  font-family: $font-stack;
+}
+
+button {
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 100;
+  cursor: pointer;
+}

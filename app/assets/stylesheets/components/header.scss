@@ -1,9 +1,13 @@
+@import '../base/colors.scss';
+
 .hero-container {
   display: flex;
+  position: relative;
   width: 1240px;
   height: 450px;
   background-image: url("hero_background.jpg");
   margin: 0 auto;
+  border-top: 4px solid $orange;
 }
 
 .hero-logo {
@@ -16,7 +20,7 @@
   background-image: url("logo_white.png");
   background-repeat: no-repeat;
   background-position: 13px 0px;
-  // background-size: 48px 22px;
+  background-size: 48px 22px;
 
   &:after {
     display: inline-block;
@@ -27,5 +31,66 @@
     content: "";
     height: 100%;
     width: 100%;
+  }
+}
+
+.hero-buttons-container {
+  display: inline-block;
+  position: absolute;
+  right: 30px;
+  padding-top: 20px;
+
+  button {
+    height: 30px;
+    color: white;
+  }
+
+  .hero-create-account {
+    width: 130px;
+    margin-left: 10px;
+    background-color: $orange;
+  }
+
+  .hero-sign-in {
+    width: 75px;
+    background: transparent;
+    border: 1px solid $gray;
+    &:hover {
+      border-color: $light-gray;
+    }
+  }
+}
+
+.hero-content-container {
+  margin: 0 auto;
+
+  h2, p, button {
+    color: $white;
+    font-weight: 100;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  h2 {
+    display: block;
+    font-size: 36px;
+    margin-top: 150px;
+  }
+
+  p {
+    font-size: 18px;
+    max-width: 530px;
+    padding-top: 10px;
+    padding-bottom: 35px;
+    line-height: 2;
+  }
+
+  button {
+    display: block;
+    width: 210px;
+    height: 46px;
+    background-color: $orange;
+    font-size: 18px;
+    font-weight: 100;
   }
 }
