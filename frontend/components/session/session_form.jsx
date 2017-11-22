@@ -15,7 +15,6 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log("i'm trying to submit");
     e.preventDefault();
     this.props.submitAction(this.state);
   }
