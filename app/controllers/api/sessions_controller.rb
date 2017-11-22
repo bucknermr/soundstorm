@@ -7,17 +7,17 @@ class Api::SessionsController < ApplicationController
 
     if @artist
       login!(@artist)
-      render 'api/artists/artist'
+      render :show
     else
       render json: 'Invalid email or password', status: 422
     end
   end
 
   def destroy
-    @user = current_user
-    if @user
+    @artist = current_artist
+    if logged_in?
       logout!
-      render 'api/artists/artist'
+      render :show
     else
       render json: 'Can\'t logout when not logged in', status: 422
     end

@@ -7,15 +7,15 @@ class ApplicationController < ActionController::Base
   end
 
   def logout!
-    current_user.reset_session_token!
+    current_artist.reset_session_token!
     session[:session_token] = nil
   end
-  
-  def current_user
-    @current_user ||= Artist.find_by(session_token: session[:session_token])
+
+  def current_artist
+    @current_artist ||= Artist.find_by(session_token: session[:session_token])
   end
 
   def logged_in?
-    !!current_user
+    !!current_artist
   end
 end

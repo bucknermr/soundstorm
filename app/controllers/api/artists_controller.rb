@@ -9,7 +9,7 @@ class Api::ArtistsController < ApplicationController
     @artist = Artist.new(artist_params)
     if @artist.save
       login!(@artist)
-      render :artist
+      render :show
     else
       render json: @artist.errors.full_messages, status: 422
     end
