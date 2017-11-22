@@ -9,7 +9,7 @@ class Api::SessionsController < ApplicationController
       login!(@artist)
       render :show
     else
-      render json: 'Invalid email or password', status: 422
+      render json: ['Invalid email or password'], status: 422
     end
   end
 
@@ -19,7 +19,7 @@ class Api::SessionsController < ApplicationController
       logout!
       render :show
     else
-      render json: 'Can\'t logout when not logged in', status: 422
+      render json: ['Can\'t logout when not logged in'], status: 422
     end
   end
 end

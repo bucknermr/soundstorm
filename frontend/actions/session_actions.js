@@ -24,7 +24,7 @@ export const signup = artist => dispatch => (
   SessionApiUtil.signup(artist)
     .then(
       newArtist => dispatch(receiveCurrentArtist(newArtist)),
-      errors => dispatch(receiveErrors(errors))
+      errors => dispatch(receiveErrors(errors.responseJSON))
     )
 );
 
@@ -32,7 +32,7 @@ export const login = artist => dispatch => (
   SessionApiUtil.login(artist)
     .then(
       currentArtist => dispatch(receiveCurrentArtist(currentArtist)),
-      errors => dispatch(receiveErrors(errors))
+      errors => dispatch(receiveErrors(errors.responseJSON))
     )
 );
 
@@ -40,6 +40,6 @@ export const logout = () => dispatch => (
   SessionApiUtil.logout()
     .then(
       artist => dispatch(receiveCurrentArtist(null)),
-      errors => dispatch(receiveErrors(errors))
+      errors => dispatch(receiveErrors(errors.responseJSON))
     )
 );
