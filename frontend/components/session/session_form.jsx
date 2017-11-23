@@ -43,9 +43,15 @@ class SessionForm extends React.Component {
     }, 1500);
   }
 
+  componentWillUnmount() {
+    if (this.props.errors.length > 0) {
+      this.props.clearErrors();
+    }
+  }
+
   render () {
     const { email, name, password } = this.state;
-    const { formType } = this.props;
+    const { formType, errors } = this.props;
     const submitValue = formType === 'signin' ? 'Sign In' : 'Create Account';
 
     return (
@@ -93,6 +99,12 @@ class SessionForm extends React.Component {
             >
             Demo
           </button>
+
+          <ul className="errors">
+            {
+              errors.map((err, i) => <li key={`error-${i}`}>{err}</li>)
+            }
+          </ul>
         </form>
       </div>
     );
