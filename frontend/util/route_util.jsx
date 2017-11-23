@@ -3,21 +3,23 @@ import { connect } from 'react-redux';
 import { withRouter, Route, Redirect } from 'react-router';
 import { showModal } from '../actions/modal_actions';
 
-const Auth = ({component: Component, path, loggedIn}) => (
+const Auth = ({component: Component, path, exact, loggedIn}) => (
   <Route
+    exact={Boolean(exact)}
     path={path}
     render={ (props) =>
       !loggedIn ? (
         <Component {...props} />
       ) : (
-        <Redirect to='/' />
+        <Redirect to='/stream' />
       )
     }
   />
 );
 
-const Protected = ({component: Component, path, loggedIn}) => (
+const Protected = ({component: Component, path, exact, loggedIn}) => (
   <Route
+    exact={Boolean(exact)}
     path={path}
     render={ (props) =>
       loggedIn ? (
@@ -30,7 +32,7 @@ const Protected = ({component: Component, path, loggedIn}) => (
 );
 
 const mapStateToProps = state => ({
-  loggedIn: Boolean(state.session.currentUser)
+  loggedIn: Boolean(state.session.currentArtist)
 });
 
 const mapDispatchToProps = dispatch => ({
