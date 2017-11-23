@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Link, NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavbarLoggedOut = ({ signinForm, signupForm }) => (
   <div className='navbar-container'>

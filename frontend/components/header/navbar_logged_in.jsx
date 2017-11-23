@@ -1,7 +1,9 @@
 import React from 'react';
-import { Redirect, Link, NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router-dom';
+import { Redirect } from 'react-router';
 
 const NavbarLoggedIn = ({ currentArtist, logout }) => {
+
   return (
     <div className='navbar-container'>
       <header className="navbar">

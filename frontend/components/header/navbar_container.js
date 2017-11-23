@@ -4,6 +4,9 @@ import { logout } from '../../actions/session_actions';
 import { showModal } from '../../actions/modal_actions';
 import NavBar from './navbar';
 
+import NavbarLoggedIn from './navbar_logged_in';
+import NavbarLoggedOut from './navbar_logged_out';
+
 const mapStateToProps = ({ session }) => ({
   currentArtist: session.currentArtist
 });
