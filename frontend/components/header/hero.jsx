@@ -7,7 +7,7 @@ class Hero extends React.Component {
 
     return (
       <div className="hero-container">
-        <h1 className="hero-logo"></h1>
+        <div className="hero-logo-small hero-logo-full"></div>
         <div className="hero-buttons-container">
           <button
             className="hero-sign-in"

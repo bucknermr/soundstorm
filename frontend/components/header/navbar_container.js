@@ -1,16 +1,22 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
-import Navbar from './navbar';
+import { showModal } from '../../actions/modal_actions';
+import NavBar from './navbar';
 
 const mapStateToProps = ({ session }) => ({
   currentArtist: session.currentArtist
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  signinForm: () => dispatch(showModal('signin')),
+  signupForm: () => dispatch(showModal('signup'))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Navbar);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(NavBar)
+);

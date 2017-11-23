@@ -1,4 +1,5 @@
 import * as SessionApiUtil from '../util/session_api_util';
+import { Redirect } from 'react-router';
 
 // Constants
 
