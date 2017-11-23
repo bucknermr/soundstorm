@@ -4,15 +4,17 @@ import SessionFormContainer from './session/session_form_container';
 import HeroContainer from './header/hero_container';
 import ModalRootContainer from './session/modal_root_container';
 import { AuthRoute } from '../util/route_util';
-import { Route } from 'react-router';
+import { Route, Switch } from 'react-router';
 
 const App = () => {
   return (
     <div>
       <header>
-        <AuthRoute exact path='/' component={HeroContainer} />
-        <NavbarContainer />
-        <ModalRootContainer />
+        <Switch>
+          <AuthRoute exact path='/' component={HeroContainer} />
+          <NavbarContainer />
+        </Switch>
+        <AuthRoute path='/' component={ModalRootContainer} />
       </header>
     </div>
   );
