@@ -1,0 +1,9 @@
+<script type="text/javascript">
+  <% if logged_in? %>
+    window.currentArtist = <%= render(
+      "api/artists/current_artist.json.jbuilder", artist: current_artist
+    ).html_safe %>;
+  <% end %>
+</script>
+
+<main id="root"></main>

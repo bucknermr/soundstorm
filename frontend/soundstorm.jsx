@@ -9,7 +9,17 @@ import { signup, login, logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const rootEl = document.getElementById('root');
-  const store = configureStore();
+
+  let store;
+
+  if (window.currentArtist) {
+    const preloadedState = { session: { currentArtist: window.currentArtist }};
+    store = configureStore(preloadedState);
+    delete window.currentArtist;
+  } else {
+    store = configureStore();
+  }
+
 
   ReactDOM.render(<Root store={store} />, rootEl);
 

@@ -10,7 +10,6 @@ const App = () => {
       <header>
         <HeroContainer />
         <NavbarContainer />
-        {/* <SessionFormContainer /> */}
         <ModalRootContainer />
       </header>
     </div>

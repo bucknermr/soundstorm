@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  helper_method :current_artist, :logged_in?
 
   def login!(artist)
     session[:session_token] = artist.reset_session_token!
