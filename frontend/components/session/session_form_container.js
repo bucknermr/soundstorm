@@ -21,7 +21,8 @@ const mapDispatchToProps = (dispatch, { formType }) => {
   }
   return {
     processForm: processForm,
-    hideModal: () => dispatch(hideModal())
+    hideModal: () => dispatch(hideModal()),
+    login: artist => dispatch(login(artist))
   };
 };
 

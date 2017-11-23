@@ -23,7 +23,7 @@ class Hero extends React.Component {
           </button>
         </div>
         <div className="hero-content-container">
-          <h2 className="wtf">Connect on SoundCloud</h2>
+          <h2>Connect on SoundCloud</h2>
           <p>
             Discover, stream, and share a constantly expanding mix of music
             from emerging and major artists around the world.

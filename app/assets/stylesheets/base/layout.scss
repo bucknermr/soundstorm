@@ -30,3 +30,14 @@ input[type="text"], input[type="password"]{
   background-color: $orange;
   color: white;
 }
+
+.modal-background {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background: rgba(242, 242, 242, 0.9);
+  z-index: 2;
+}

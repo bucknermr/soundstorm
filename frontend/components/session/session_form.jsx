@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.loginDemo = this.loginDemo.bind(this);
   }
 
   handleChange(field) {
@@ -22,13 +23,24 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const artist = merge({}, this.state);
-    this.props.processForm(artist);
+    this.props.processForm(artist)
+      .then(() => this.props.hideModal());
   }
 
   handleClick(e) {
     if (e.target === e.currentTarget) {
       this.props.hideModal();
     }
+  }
+
+  loginDemo(e) {
+    e.preventDefault();
+
+    this.setState({ email: 'email', name: 'name', password: 'password' });
+    setTimeout(() => {
+      this.props.login(this.state)
+      .then(() => this.props.hideModal());
+    }, 1500);
   }
 
   render () {
@@ -38,10 +50,12 @@ class SessionForm extends React.Component {
 
     return (
       <div
-        className="session-modal"
+        className="modal-background animated fadeIn"
         onClick={this.handleClick}
         >
-        <form className="session-form" onSubmit={this.handleSubmit} >
+        <form
+          className="session-form animated slideInDown"
+          onSubmit={this.handleSubmit} >
           <input
             className="input-text-large"
             type='text'
@@ -72,6 +86,12 @@ class SessionForm extends React.Component {
             type="submit"
             >
             {submitValue}
+          </button>
+          <button
+            className="orange-button"
+            onClick={this.loginDemo}
+            >
+            Demo
           </button>
         </form>
       </div>

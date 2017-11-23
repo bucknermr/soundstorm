@@ -1,16 +1,5 @@
 @import '../base/colors.scss';
 
-.session-modal {
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  background: rgba(242, 242, 242, 0.9);
-  z-index: 2;
-}
-
 .session-form {
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +10,8 @@
   height: 620px;
   z-index: 3;
   background: $white;
-  input {
+
+  input, button {
     display: block;
     width: 400px;
     margin-bottom: 30px;
@@ -29,6 +19,5 @@
 
   button {
     padding: 15px;
-    width: 400px;
   }
 }

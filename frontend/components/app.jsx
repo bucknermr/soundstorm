@@ -14,7 +14,7 @@ const App = () => {
           <AuthRoute exact path='/' component={HeroContainer} />
           <NavbarContainer />
         </Switch>
-        <AuthRoute path='/' component={ModalRootContainer} />
+        <ModalRootContainer />
       </header>
     </div>
   );
