@@ -5,6 +5,8 @@ const _nullModal = {
 };
 
 const modalReducer = (state = _nullModal, { type, modalType }) => {
+  Object.freeze(state);
+
   switch (type) {
     case SHOW_MODAL:
       return { modalType: modalType };

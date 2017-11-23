@@ -8,7 +8,7 @@ const mapStateToProps = ({ session, errors }, { formType }) => {
 
   return {
     loggedIn: Boolean(session.currentArtist),
-    errors: errors,
+    errors: errors.session,
     formType: formType
   };
 };
