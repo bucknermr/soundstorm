@@ -1,0 +1,27 @@
+.track-upload-modal {
+  height: 400px;
+  width: 500px;
+  h2 {
+    font-size: 24px;
+    position: absolute;
+    top: 50px;
+  }
+
+
+}
+
+.file-upload-button {
+  @extend button;
+  position: absolute;
+  top: 200px;
+  padding: 10px;
+  font-size: 16px;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.audio-file-name {
+  position: absolute;
+  top: 251px;
+  color: blue;
+}
