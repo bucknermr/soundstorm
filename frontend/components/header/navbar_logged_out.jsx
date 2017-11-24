@@ -3,19 +3,16 @@ import { Link, NavLink } from 'react-router-dom';
 
 const NavbarLoggedOut = ({ signinForm, signupForm }) => (
   <div className='navbar-container'>
-    <header className="navbar">
-      <Link to='/stream' className="logo-button navbar-button"></Link>
-      <NavLink to='/stream' className="home-button navbar-button" >
+    <header className="navbar logged-out">
+      <Link to='/' className="logo-button-full navbar-button"></Link>
+      <NavLink exact to='/' className="home-button navbar-button" >
         Home
       </NavLink>
-      <Link to='/stream' className="collection-button navbar-button" >
-      Collection
-    </Link>
       <form className="nav-search-form" >
         <input
           type="search"
           className="nav-search-input"
-          placeholder="Search"
+          placeholder="Search for artists, bands, tracks"
         />
         <button type="submit" className="search-icon">
           <i className="fa fa-search" aria-hidden="true"></i>
@@ -27,7 +24,7 @@ const NavbarLoggedOut = ({ signinForm, signupForm }) => (
       <button
         type="button"
         onClick={signinForm}
-        className="navbar-sign-in navbar-button">Sign in</button>
+        className="navbar-sign-in ">Sign in</button>
       <button
         type="button"
         onClick={signupForm}
