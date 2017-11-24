@@ -4,22 +4,23 @@ import TrackUpload from './track_upload';
 import ModalBackgroundContainer from './modal_background_container';
 
 const ModalRoot = ({ modalType }) => {
-  if (modalType) {
-    return (
-      <ModalBackgroundContainer>
 
-        {(modalType === 'signup' || modalType === 'signin') ? (
+  switch(modalType) {
+    case 'signup':
+    case 'signin':
+      return (
+        <ModalBackgroundContainer>
           <SessionFormContainer formType={modalType} />
-        ) : null }
-
-        {(modalType === 'track-upload' ) ? (
+        </ModalBackgroundContainer>
+      );
+    case 'track-upload':
+      return (
+        <ModalBackgroundContainer>
           <TrackUpload />
-        ) : null }
-
-      </ModalBackgroundContainer>
-    );
-  } else {
-    return null;
+        </ModalBackgroundContainer>
+      );
+    default:
+      return null;
   }
 };
 
