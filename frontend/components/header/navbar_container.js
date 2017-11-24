@@ -14,7 +14,8 @@ const mapStateToProps = ({ session }) => ({
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   signinForm: () => dispatch(showModal('signin')),
-  signupForm: () => dispatch(showModal('signup'))
+  signupForm: () => dispatch(showModal('signup')),
+  trackUploadForm: () => dispatch(showModal('track-upload'))
 });
 
 export default withRouter(

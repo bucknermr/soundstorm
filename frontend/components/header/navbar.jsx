@@ -2,12 +2,21 @@ import React from 'react';
 import NavbarLoggedIn from './navbar_logged_in';
 import NavbarLoggedOut from './navbar_logged_out';
 
-const Navbar = ({logout, currentArtist, signupForm, signinForm}) => {
+const Navbar = (
+  {
+    logout,
+    currentArtist,
+    signupForm,
+    signinForm,
+    trackUploadForm
+  }) => {
+
   if (currentArtist) {
     return (
       <NavbarLoggedIn
         currentArtist={currentArtist}
         logout={logout}
+        trackUploadForm={trackUploadForm}
       />
     );
   } else {

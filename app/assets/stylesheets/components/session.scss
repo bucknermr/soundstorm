@@ -1,15 +1,11 @@
 @import '../base/colors.scss';
+@import '../base/layout.scss';
 
 .session-form {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-  margin-top: 75px;
+  @extend .modal-content;
+
   width: 450px;
   height: 620px;
-  z-index: 3;
-  background: $white;
 
   input, button {
     display: block;

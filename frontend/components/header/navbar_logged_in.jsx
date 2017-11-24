@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Redirect } from 'react-router';
 
-const NavbarLoggedIn = ({ currentArtist, logout }) => {
+const NavbarLoggedIn = ({ currentArtist, logout, trackUploadForm }) => {
 
   return (
     <div className='navbar-container'>
@@ -24,9 +24,15 @@ const NavbarLoggedIn = ({ currentArtist, logout }) => {
             <i className="fa fa-search" aria-hidden="true"></i>
           </button>
         </form>
-        <NavLink to='/upload' className="upload-button navbar-button" >
+        <button
+          className="upload-button navbar-button"
+          onClick={trackUploadForm}
+        >
           Upload
-        </NavLink>
+        </button>
+        {/* <NavLink to='/upload' className="upload-button navbar-button" >
+          Upload
+        </NavLink> */}
         <NavLink to='/profile' className="profile-button navbar-button" >
           {currentArtist.name}
         </NavLink>

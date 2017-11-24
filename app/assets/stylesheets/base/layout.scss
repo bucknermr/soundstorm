@@ -43,7 +43,17 @@ input[type="text"], input[type="password"]{
   z-index: 2;
 }
 
-.errors{
+.modal-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  margin-top: 75px;
+  z-index: 3;
+  background: $white;
+}
+
+.errors {
   text-align: center;
   top: 500px;
   color: red;
