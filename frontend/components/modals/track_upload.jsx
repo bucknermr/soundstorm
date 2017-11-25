@@ -45,39 +45,52 @@ class TrackUpload extends React.Component {
 
     return (
         <form
-          className="track-upload-form
-          modal-content
+          className="
           track-upload-modal
           animated slideInDown"
           onSubmit={this.handleSubmit}
           >
 
           <h2>Upload to SoundCloud</h2>
-          <label>Title
-            <input
-              type="text"
-              value={title}
-              placeholder="Name your track"
-              onChange={this.handleChange('title')}
-            />
-          </label>
-          <label>Description
-            <textarea
-              value={description}
-              placeholder="Describe your track"
-              onChange={this.handleChange('description')}
-            />
-          </label>
           <label
             className="orange-button file-upload-button" >
             Choose a file to upload
             <input
               type="file"
               accept="audio/*"
-              onChange={this.handleFileChange} />
+              onChange={this.handleFileChange}
+            />
           </label>
           <p className="audio-file-name" >{filename}</p>
-          <button type="submit" className="orange-button">Create new track</button>
+          <div className="upload-input-fields-container" >
+            <label className="title">Title<span>*</span>
+              <input
+                type="text"
+                value={title}
+                placeholder="Name your track"
+                onChange={this.handleChange('title')}
+              />
+            </label>
+            <label className="description">Description
+              <textarea
+                value={description}
+                placeholder="Describe your track"
+                onChange={this.handleChange('description')}
+              />
+            </label>
+          </div>
+          <div className="image-placeholder">
+            <button>
+              <i class="fa fa-camera" aria-hidden="true"></i>Update Image
+            </button>
+          </div>
+          <div className="submit-container">
+            <p><span>*</span>Required fields</p>
+            <div>
+              <a onClick={this.props.hideModal}>Cancel</a>
+              <button type="submit" className="orange-button">Save</button>
+            </div>
+          </div>
         </form>
     );
   }

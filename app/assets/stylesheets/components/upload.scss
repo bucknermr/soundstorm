@@ -1,15 +1,18 @@
+@import '../base/layout.scss';
+@import '../base/colors.scss';
+
 .track-upload-modal {
-  height: 400px;
-  width: 500px;
+  @extend .modal-content;
+  height: 515px;
+  width: 800px;
   h2 {
     font-size: 24px;
     position: absolute;
-    top: 50px;
+    top: 20px;
   }
 
-  button {
-    position: absolute;
-    bottom: 30px;
+  span{
+    color: $orange;
   }
 
 }
@@ -17,15 +20,105 @@
 .file-upload-button {
   @extend button;
   position: absolute;
-  top: 200px;
+  top: 50px;
   padding: 10px;
-  font-size: 16px;
-  height: 40px;
+  font-size: 14px;
+  height: 30px;
+  width: 178px;
   box-sizing: border-box;
 }
 
 .audio-file-name {
   position: absolute;
-  top: 251px;
+  top: 86px;
   color: blue;
+}
+
+
+.upload-input-fields-container {
+  display: flex;
+  position: absolute;
+  left: 305px;
+  top: 100px;
+  height: 275px;
+  width: 480px;
+
+  label.title, label.description {
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    font-size: 12px;
+
+    input, textarea {
+      resize: vertical;
+      width: 470px;
+      border-radius: 4px;
+      color: #333;
+      font-weight: 400;
+      font-size: 14px;
+      padding: 3px 5px;
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+
+    textarea {
+      height: 130px;
+    }
+  }
+
+  label.title {
+    top: 10px;
+  }
+
+  label.description {
+    top: 80px;
+  }
+}
+
+.image-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 260px;
+  height: 260px;
+  background: linear-gradient(135deg, $red-gray, $blue-gray);
+  position: absolute;
+  left: 21px;
+  top: 109px;
+  border: 1px solid black;
+  button {
+    margin-bottom: 27px;
+    padding: 2px 10px;
+    border: 1px solid $light-gray;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background-color .2s;
+    &:hover {
+      background-color: $white;
+    }
+    i {
+      padding-right: 7px;
+    }
+  }
+}
+
+.submit-container {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  border-top: 1px solid $light-gray;
+  box-sizing: border-box;
+
+
+  div, div a, p {
+    position: relative;
+    margin: 0 20px;
+
+    button {
+      padding: 5px 10px;
+    }
+  }
 }

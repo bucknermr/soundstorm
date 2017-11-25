@@ -10,6 +10,10 @@ body {
   font-weight: 100;
 }
 
+a {
+  cursor: pointer;
+}
+
 button {
   border-radius: 3px;
   font-size: 14px;
@@ -17,7 +21,9 @@ button {
   margin: 0 auto;
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"],
+input[type="password"],
+textarea {
   border: 1px solid $gray;
 }
 
@@ -64,4 +70,8 @@ input[type="text"], input[type="password"]{
 
 input[type="file"] {
   display: none;
+}
+
+#root {
+	overflow: scroll;
 }
