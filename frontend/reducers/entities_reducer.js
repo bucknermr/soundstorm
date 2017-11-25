@@ -1,11 +1,8 @@
+import { combineReducers } from 'redux';
+import tracksReducer from './tracks_reducer';
 
-const entitiesReducer = (state = {}, action) => {
-  Object.freeze(state);
-
-  switch(action.type){
-    default:
-      return state;
-  }
-};
+const entitiesReducer = combineReducers({
+  tracks: tracksReducer
+});
 
 export default entitiesReducer;
