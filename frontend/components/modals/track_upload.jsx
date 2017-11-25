@@ -1,18 +1,23 @@
 import React from 'react';
 import ModalBackgroundContainer from './modal_background_container';
 
+import UpdateImage from '../buttons/update_image';
+
 class TrackUpload extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
       description: '',
-      filename: '',
-      file: null
+      audioFile: null,
+      audioFileName: null,
+      imageFile: null,
+      imageUrl: null
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleFileChange = this.handleFileChange.bind(this);
+    this.handleAudioChange = this.handleAudioChange.bind(this);
+    this.handleImageChange = this.handleImageChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -33,15 +38,45 @@ class TrackUpload extends React.Component {
     };
   }
 
-  handleFileChange(e) {
+  handleAudioChange(e) {
     const file = e.target.files[0];
     if (file) {
-      this.setState({ file: file, filename: file.name });
+      this.setState({ audioFile: file, audioFileName: file.name });
+    }
+  }
+
+  handleImageChange(e) {
+    const reader = new FileReader();
+    const file = e.target.files[0];
+    reader.onloadend = () => {
+      this.setState({ imageFile: file, imageUrl: reader.result });
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
+  renderImage() {
+    if (this.state.imageUrl) {
+      return (
+        <div className="image-placeholder track-image-container">
+          <img src={this.state.imageUrl} className="track-image" />
+          <UpdateImage handleImageChange={this.handleImageChange} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="image-placeholder">
+          <UpdateImage handleImageChange={this.handleImageChange} />
+        </div>
+      );
     }
   }
 
   render() {
-    const { title, description, filename } = this.state;
+    const { title, description, audioFileName } = this.state;
+    console.log(this.state);
 
     return (
         <form
@@ -58,10 +93,10 @@ class TrackUpload extends React.Component {
             <input
               type="file"
               accept="audio/*"
-              onChange={this.handleFileChange}
+              onChange={this.handleAudioChange}
             />
           </label>
-          <p className="audio-file-name" >{filename}</p>
+          <p className="audio-file-name" >{audioFileName}</p>
           <div className="upload-input-fields-container" >
             <label className="title">Title<span>*</span>
               <input
@@ -79,11 +114,9 @@ class TrackUpload extends React.Component {
               />
             </label>
           </div>
-          <div className="image-placeholder">
-            <button>
-              <i class="fa fa-camera" aria-hidden="true"></i>Update Image
-            </button>
-          </div>
+
+          {this.renderImage()}
+
           <div className="submit-container">
             <p><span>*</span>Required fields</p>
             <div>
