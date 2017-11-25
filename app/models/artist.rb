@@ -3,6 +3,8 @@ class Artist < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
+  has_many :Tracks
+
   after_initialize :ensure_session_token
 
   def ensure_session_token
