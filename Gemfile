@@ -38,8 +38,8 @@ gem 'animate-rails'
 gem 'font-awesome-rails'
 
 gem 'figaro'
-gem "paperclip", "~> 5.0.0"
-gem 'aws-sdk', '>= 2.0'
+gem "paperclip", "~> 5.1.0"
+gem 'aws-sdk', '< 3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

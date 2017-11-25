@@ -18,6 +18,13 @@ class TrackUpload extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const { title, description, file } = this.state;
+    const formData = new FormData();
+    formData.append("track[title]", title);
+    formData.append("track[description]", description);
+    formData.append("track[audio]", file);
+    console.log(formData);
+    this.props.createTrack(formData);
   }
 
   handleChange(type) {
@@ -51,12 +58,14 @@ class TrackUpload extends React.Component {
               type="text"
               value={title}
               placeholder="Name your track"
+              onChange={this.handleChange('title')}
             />
           </label>
           <label>Description
             <textarea
               value={description}
               placeholder="Describe your track"
+              onChange={this.handleChange('description')}
             />
           </label>
           <label
@@ -68,6 +77,7 @@ class TrackUpload extends React.Component {
               onChange={this.handleFileChange} />
           </label>
           <p className="audio-file-name" >{filename}</p>
+          <button type="submit" className="orange-button">Create new track</button>
         </form>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import SessionFormContainer from './session_form_container';
-import TrackUpload from './track_upload';
+import TrackUploadContainer from './track_upload_container';
 import ModalBackgroundContainer from './modal_background_container';
 
 const ModalRoot = ({ modalType }) => {
@@ -16,7 +16,7 @@ const ModalRoot = ({ modalType }) => {
     case 'track-upload':
       return (
         <ModalBackgroundContainer>
-          <TrackUpload />
+          <TrackUploadContainer />
         </ModalBackgroundContainer>
       );
     default:

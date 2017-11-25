@@ -5,6 +5,6 @@ class Track < ApplicationRecord
   # validates_attachment_content_type :audio, content_type: /\Aimage\/.*\z/
   # validates_attachment_file_name :audio, matches: [/png\z/, /jpe?g\z/]
 
-  belongs_to :Artist
+  belongs_to :artist
 
 end
