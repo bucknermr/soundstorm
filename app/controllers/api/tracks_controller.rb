@@ -7,6 +7,8 @@ class Api::TracksController < ApplicationController
     @track = Track.find_by(id: params[:id])
     if @track
       render :show
+    else
+      render json: ["Sorry, we can't find this track."], status: 404
     end
   end
 

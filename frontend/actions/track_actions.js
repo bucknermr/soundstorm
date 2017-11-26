@@ -6,6 +6,8 @@ export const RECEIVE_TRACKS = 'RECEIVE_TRACKS';
 export const RECEIVE_TRACK = 'RECEIVE_TRACK';
 export const REMOVE_TRACK = 'DELETE_TRACK';
 
+export const PLAY_TRACK = 'PLAY_TRACK';
+
 export const RECEIVE_TRACK_ERRORS = 'RECEIVE_TRACK_ERRORS';
 export const CLEAR_TRACK_ERRORS =  'CLEAR_TRACK_ERRORS';
 
@@ -24,6 +26,12 @@ export const receiveTrack = track => ({
 export const removeTrack = track => ({
   type: REMOVE_TRACK,
   trackId: track.id
+});
+
+
+export const playTrack = track => ({
+  type: PLAY_TRACK,
+  track
 });
 
 export const receiveErrors = errors => ({

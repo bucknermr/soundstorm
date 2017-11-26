@@ -5,6 +5,9 @@ import ModalRootContainer from './modals/modal_root_container';
 import { AuthRoute } from '../util/route_util';
 import { Route, Switch } from 'react-router';
 
+import TrackDetailContainer from './tracks/track_detail_container';
+import PlayerContainer from './footer/player_container';
+
 const App = () => {
   return (
     <div>
@@ -15,6 +18,12 @@ const App = () => {
         </Switch>
         <ModalRootContainer />
       </header>
+      <main>
+        <Route exact path='/tracks/:trackId' component={TrackDetailContainer} />
+      </main>
+      <footer>
+        <PlayerContainer />
+      </footer>
     </div>
   );
 };
