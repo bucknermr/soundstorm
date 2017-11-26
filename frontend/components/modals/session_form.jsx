@@ -1,5 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
+import Errors from './errors';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -87,11 +88,8 @@ class SessionForm extends React.Component {
           Demo
         </button>
 
-        <ul className="errors">
-          {
-            errors.map((err, i) => <li key={`error-${i}`}>{err}</li>)
-          }
-        </ul>
+        <Errors errors={errors}/>
+        
       </form>
     );
   }

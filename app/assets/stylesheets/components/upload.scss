@@ -14,7 +14,6 @@
   span{
     color: $orange;
   }
-
 }
 
 .file-upload-button {
@@ -153,4 +152,12 @@
       padding: 5px 10px;
     }
   }
+}
+
+
+
+.errors {
+  position: absolute;
+  top: 350px;
+  right: 195px;
 }

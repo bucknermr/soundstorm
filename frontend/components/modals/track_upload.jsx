@@ -1,6 +1,6 @@
 import React from 'react';
 import ModalBackgroundContainer from './modal_background_container';
-
+import Errors from './errors';
 import UpdateImage from '../buttons/update_image';
 
 class TrackUpload extends React.Component {
@@ -9,10 +9,10 @@ class TrackUpload extends React.Component {
     this.state = {
       title: '',
       description: '',
-      audioFile: null,
-      audioFileName: null,
-      imageFile: null,
-      imageUrl: null
+      audioFile: '',
+      audioFileName: '',
+      imageFile: '',
+      imageUrl: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -23,13 +23,16 @@ class TrackUpload extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { title, description, file } = this.state;
+    const { title, description, audioFile, imageFile } = this.state;
     const formData = new FormData();
+
     formData.append("track[title]", title);
     formData.append("track[description]", description);
-    formData.append("track[audio]", file);
-    console.log(formData);
-    this.props.createTrack(formData);
+    formData.append("track[audio]", audioFile);
+    formData.append("track[image]", imageFile);
+
+    this.props.createTrack(formData)
+      .then(() => this.props.hideModal());
   }
 
   handleChange(type) {
@@ -76,7 +79,6 @@ class TrackUpload extends React.Component {
 
   render() {
     const { title, description, audioFileName } = this.state;
-    console.log(this.state);
 
     return (
         <form
@@ -124,6 +126,9 @@ class TrackUpload extends React.Component {
               <button type="submit" className="orange-button">Save</button>
             </div>
           </div>
+
+          <Errors className="upload-errors" errors={this.props.errors} />
+
         </form>
     );
   }

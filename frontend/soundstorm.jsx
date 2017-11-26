@@ -4,7 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // TODO: FOR TESTING
-import { signup, login, logout } from './actions/session_actions';
+import { requestTrack } from './actions/track_actions';
 // TESTING END
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,8 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
-  window.signup = signup;
-  window.login = login;
-  window.logout = logout;
+  window.requestTrack = requestTrack;
+
   // TESTING END
 });
