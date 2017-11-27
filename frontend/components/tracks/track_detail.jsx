@@ -1,11 +1,12 @@
 import React from 'react';
+import WaveformContainer from '../audio/waveform_container';
 
 class TrackDetail extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      track: { title: '', description: '', imageUrl: '' }
+      track: { title: '', description: '', imageUrl: '', id: '' }
     };
   }
 
@@ -23,7 +24,7 @@ class TrackDetail extends React.Component {
 
   render () {
     const { track } = this.state;
-    const { playTrack } = this.props;
+    const { play } = this.props;
 
     return (
       <div>
@@ -33,9 +34,18 @@ class TrackDetail extends React.Component {
           <li>Title: {track.title}</li>
           <li>Description: {track.description}</li>
         </ul>
-        <button onClick={() => playTrack(track)}>
+        <button onClick={() => play(track)}>
           Play!
         </button>
+
+        {
+          track.id ? (
+            <WaveformContainer
+              audioUrl={track.audioUrl}
+              trackId={track.id}
+            />
+          ) : null
+        }
       </div>
     );
   }

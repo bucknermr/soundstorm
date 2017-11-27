@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { requestTrack, playTrack } from '../../actions/track_actions.js';
+import { requestTrack } from '../../actions/track_actions.js';
+import { play } from '../../actions/audio_actions.js';
 import TrackDetail from './track_detail';
 
 const mapStateToProps = ({ entities }, { match }) => {
@@ -11,7 +12,7 @@ const mapStateToProps = ({ entities }, { match }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   requestTrack: trackId => dispatch(requestTrack(trackId)),
-  playTrack: track => dispatch(playTrack(track))
+  play: track => dispatch(play(track))
 });
 
 export default withRouter(connect(

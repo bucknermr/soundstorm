@@ -6,7 +6,7 @@ import { AuthRoute } from '../util/route_util';
 import { Route, Switch } from 'react-router';
 
 import TrackDetailContainer from './tracks/track_detail_container';
-import PlayerContainer from './footer/player_container';
+import PlayerContainer from './audio/player_container';
 
 const App = () => {
   return (
