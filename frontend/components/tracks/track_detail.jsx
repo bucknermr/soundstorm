@@ -26,10 +26,22 @@ class TrackDetail extends React.Component {
     const { track } = this.state;
     const { play } = this.props;
 
+    if (!track.id) { return null; }
+
     return (
       <div>
-        <h1> this is a track </h1>
-        <img src={track.imageUrl} ></img>
+        <div className="track-hero-container">
+          <img src={track.imageUrl} ></img>
+
+          <WaveformContainer
+            audioUrl={track.audioUrl}
+            trackId={track.id}
+            height={100}
+            barHeight={3}
+          />
+
+        </div>
+
         <ul>
           <li>Title: {track.title}</li>
           <li>Description: {track.description}</li>
@@ -37,15 +49,6 @@ class TrackDetail extends React.Component {
         <button onClick={() => play(track)}>
           Play!
         </button>
-
-        {
-          track.id ? (
-            <WaveformContainer
-              audioUrl={track.audioUrl}
-              trackId={track.id}
-            />
-          ) : null
-        }
       </div>
     );
   }

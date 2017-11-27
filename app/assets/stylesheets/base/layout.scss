@@ -43,7 +43,8 @@ textarea {
   justify-content: center;
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vw;
   top: 0;
   background: rgba(242, 242, 242, 0.9);
   z-index: 10;
@@ -51,6 +52,8 @@ textarea {
 
 .modal-content {
   display: flex;
+  position: absolute;
+  top: 0px;
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
@@ -77,6 +80,7 @@ audio.react-audio-player {
     bottom: 0px;
 }
 
-#root {
-	overflow: scroll;
+#main {
+  width: 1240px;
+  margin: 0 auto;
 }

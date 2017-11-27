@@ -18,7 +18,7 @@ const App = () => {
         </Switch>
         <ModalRootContainer />
       </header>
-      <main>
+      <main id="main">
         <Route exact path='/tracks/:trackId' component={TrackDetailContainer} />
       </main>
       <footer>
