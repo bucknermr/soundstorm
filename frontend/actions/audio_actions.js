@@ -4,8 +4,7 @@ export const SEEK_WAVEFORM = 'SEEK_WAVEFORM';
 
 export const playTrack = (position, track) => ({
   type: PLAY_TRACK,
-  position,
-  track
+  payload: { position, track, trackId: track.id }
 });
 
 export const seekTrack = (position, trackId) => ({

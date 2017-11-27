@@ -28,9 +28,7 @@ class Player extends React.Component {
   }
 
   componentDidUpdate() {
-    if (!isNaN(this.rap.audioEl.currentTime)){
-      this.rap.audioEl.currentTime = this.state.position;
-    }
+    this.rap.audioEl.currentTime = this.state.position;
   }
 
   render () {

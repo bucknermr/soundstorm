@@ -3,6 +3,7 @@ import merge from 'lodash/merge';
 
 const _nullAudio = {
   track: null,
+  trackId: null,
   position: 0,
 };
 
@@ -13,12 +14,9 @@ const audioReducer = (state = _nullAudio, action) => {
 
   switch(action.type) {
     case PLAY_TRACK:
-      newState = merge({}, state);
-      newState.track = action.track;
-      newState.position = action.position;
-      return newState;
+      return action.payload;
     case SEEK_TRACK:
-      if (action.trackId === state.track.id) {
+      if (action.trackId === state.trackId) {
         newState = merge({}, state);
         newState.position = action.position;
         return newState;
