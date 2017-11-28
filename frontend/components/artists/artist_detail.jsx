@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ArtistSidebar from './artist_sidebar';
 
 class ArtistDetail extends React.Component {
 
@@ -56,19 +56,20 @@ class ArtistDetail extends React.Component {
     return (
       <div>
         <header className="artist-hero-container">
+          {
+            imageUrl ? (<img src={imageUrl}/>) : null
+          }
+
           <h3 className="artist-name">{name}</h3>
-          {/* <p>{bio}
-            This is where the bio would go. This is the biography of a random
-            artist. This person is really interesting and good at their job.
-            Woohoo.
-          </p> */}
           <section className="artist-detail-content-container">
             <div className="artist-buttons-container">
               {this.renderButtons()}
             </div>
-            <div className=""></div>
+            <div className="artist-main">
+              <div className="artist-track-index"></div>
+              <ArtistSidebar artist={this.state.artist} />
+            </div>
           </section>
-          <img src={imageUrl} />
         </header>
       </div>
     );

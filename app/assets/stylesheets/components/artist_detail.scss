@@ -46,12 +46,61 @@
 .artist-buttons-container {
   display: flex;
   justify-content: flex-end;
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
-  border-bottom: 1px solid $light-gray;
+  border-bottom: 1px solid $off-white;
 }
 
 .artist-buttons {
     margin-top: 15px;
     padding-bottom: 5px;
+}
+
+.artist-sidebar {
+  position: absolute;
+  width: 337px;
+  font-size: 14px;
+  right: 0px;
+  margin: 50px 10px 0;
+
+  height: 100%;
+  border-left: 1px solid $off-white;
+}
+
+.artist-stats {
+  position: absolute;
+  left: 20px;
+  top: 0px;
+  display: flex;
+  padding-bottom: 20px;
+
+  div {
+    color: $medium-gray;
+    width: 90px;
+    border-right: 1px solid $light-gray;
+    padding-left: 20px;
+
+    p {
+      font-size: 12px;
+      padding-bottom: 6px;
+    }
+    .artist-stat {
+      font-size: 20px;
+    }
+  }
+
+  div:nth-child(3) {
+    border: none;
+  }
+
+  div:first-child {
+    padding: 0px;
+  }
+}
+
+.artist-bio {
+  width: 325px;
+  position: absolute;
+  top: 60px;
+  left: 20px;
 }
