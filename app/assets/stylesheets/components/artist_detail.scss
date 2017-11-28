@@ -42,3 +42,16 @@
     }
   }
 }
+
+.artist-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid $light-gray;
+}
+
+.artist-buttons {
+    margin-top: 15px;
+    padding-bottom: 5px;
+}

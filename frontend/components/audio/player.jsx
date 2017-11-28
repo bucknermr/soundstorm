@@ -36,14 +36,19 @@ class Player extends React.Component {
   }
 
   handleKeyDown(e) {
-    if (e.keyCode === 32 && e.target.tagName === 'BODY') {
+    if (
+      e.keyCode === 32 &&
+      e.target === e.currentTarget &&
+      this.state.track.audioUrl
+    ) {
       this.togglePlayPause();
     }
   }
 
   componentDidMount () {
     this.rap.audioEl.setAttribute('controlsList', 'nodownload');
-    document.addEventListener('keydown', this.handleKeyDown);
+    const body = document.getElementById('body');
+    body.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillReceiveProps({ track, position, paused }) {
@@ -58,7 +63,8 @@ class Player extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventLIstener('keydown', this.handleKeyDown);
+    const body = document.getElementById('body');
+    body.removeEventLIstener('keydown', this.handleKeyDown);
   }
 
   componentDidUpdate() {

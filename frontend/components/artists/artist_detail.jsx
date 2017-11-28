@@ -34,7 +34,7 @@ class ArtistDetail extends React.Component {
     const { currentArtist, artist, showModal } = this.props;
     if (currentArtist && currentArtist.id === this.state.artist.id) {
       return (
-        <div>
+        <div className="artist-buttons">
           <button
             className="edit-button"
             onClick={() => showModal('artist-edit')}

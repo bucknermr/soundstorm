@@ -90,7 +90,9 @@ class ArtistEdit extends React.Component {
           </div>
         </div>
 
-        {/* <Errors className="upload-errors" errors={this.props.errors} /> */}
+        {
+          // TODO: add error rendering
+        }
 
       </form>
     );
