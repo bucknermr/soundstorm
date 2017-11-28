@@ -2,7 +2,6 @@ export const PLAY_TRACK = 'PLAY_TRACK';
 export const PAUSE_TRACK = 'PAUSE_TRACK';
 export const SEEK_TRACK = 'SEEK_TRACK';
 export const SEEK_WAVEFORM = 'SEEK_WAVEFORM';
-export const ACTIVATE_PAUSE_BUTTON = 'ACTIVATE_PAUSE_BUTTON';
 
 export const playTrack = (position, track) => ({
   type: PLAY_TRACK,

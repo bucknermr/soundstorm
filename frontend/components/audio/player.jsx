@@ -41,7 +41,7 @@ class Player extends React.Component {
 
   componentDidMount () {
     this.rap.audioEl.setAttribute('controlsList', 'nodownload');
-    document.addEventListener('keydown', e => this.handleKeyDown(e));
+    document.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillReceiveProps({ track, position, paused }) {
@@ -56,7 +56,7 @@ class Player extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventLIstener('keydown');
+    document.removeEventLIstener('keydown', this.handleKeyDown);
   }
 
   componentDidUpdate() {

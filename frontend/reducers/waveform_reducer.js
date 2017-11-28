@@ -2,6 +2,7 @@ import { SEEK_WAVEFORM } from '../actions/audio_actions';
 import { RECEIVE_TRACK, RECEIVE_TRACKS } from '../actions/track_actions';
 import merge from 'lodash/merge';
 
+// Format: 
 // { trackId: trackPosition }
 
 const waveformReducer = (state = {}, action) => {

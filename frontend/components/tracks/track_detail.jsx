@@ -9,13 +9,24 @@ class TrackDetail extends React.Component {
       track: { title: '', description: '', imageUrl: '', id: '' },
       paused: true
     };
+
+    this.handlePlay = this.handlePlay.bind(this);
+    this.handlePause = this.handlePause.bind(this);
+  }
+
+  handlePlay() {
+    this.setState({ paused: false });
+  }
+
+  handlePause() {
+    this.setState({ paused: true });
   }
 
   componentDidMount() {
     this.props.requestTrack(this.props.match.params.trackId);
     const audio = document.querySelector('.react-audio-player');
-    audio.addEventListener('pause', () => this.setState({ paused: true }));
-    audio.addEventListener('play', () => this.setState({ paused: false }));
+    audio.addEventListener('play', this.handlePlay);
+    audio.addEventListener('pause', this.handlePause);
   }
 
   componentWillReceiveProps({ track, match }) {
@@ -28,8 +39,8 @@ class TrackDetail extends React.Component {
 
   componentWillUnmount() {
     const audio = document.querySelector('.react-audio-player');
-    audio.removeEventListener('pause');
-    audio.removeEventListener('play');
+    audio.removeEventListener('play', this.handlePlay);
+    audio.removeEventListener('pause', this.handlePause);
   }
 
   renderPlayPause() {
@@ -56,7 +67,7 @@ class TrackDetail extends React.Component {
     return (
       <div>
         <div className="track-hero-container">
-          <img src={track.imageUrl} ></img>
+          { this.renderPlayPause() }
 
           <WaveformContainer
             audioUrl={track.audioUrl}
@@ -65,7 +76,7 @@ class TrackDetail extends React.Component {
             barHeight={3}
           />
 
-          { this.renderPlayPause() }
+          <img src={track.imageUrl} ></img>
 
         </div>
 
