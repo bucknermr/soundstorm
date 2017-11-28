@@ -6,12 +6,16 @@ class TrackDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      track: { title: '', description: '', imageUrl: '', id: '' }
+      track: { title: '', description: '', imageUrl: '', id: '' },
+      paused: true
     };
   }
 
   componentDidMount() {
     this.props.requestTrack(this.props.match.params.trackId);
+    const audio = document.querySelector('.react-audio-player');
+    audio.addEventListener('pause', () => this.setState({ paused: true }));
+    audio.addEventListener('play', () => this.setState({ paused: false }));
   }
 
   componentWillReceiveProps({ track, match }) {
@@ -19,6 +23,27 @@ class TrackDetail extends React.Component {
       this.setState({ track });
     } else {
       this.props.requestTrack(match.params.trackId);
+    }
+  }
+
+  componentWillUnmount() {
+    const audio = document.querySelector('.react-audio-player');
+    audio.removeEventListener('pause');
+    audio.removeEventListener('play');
+  }
+
+  renderPlayPause() {
+    const { track } = this.state;
+    if (this.props.playing && !this.state.paused) {
+      return (
+        <div className="pause-button-large"
+          onClick={() => this.props.pause(track)}></div>
+      );
+    } else {
+      return (
+        <div className="play-button-large"
+          onClick={() => this.props.play(track)}></div>
+      );
     }
   }
 
@@ -40,15 +65,14 @@ class TrackDetail extends React.Component {
             barHeight={3}
           />
 
+          { this.renderPlayPause() }
+
         </div>
 
         <ul>
           <li>Title: {track.title}</li>
           <li>Description: {track.description}</li>
         </ul>
-        <button onClick={() => play(track)}>
-          Play!
-        </button>
       </div>
     );
   }
