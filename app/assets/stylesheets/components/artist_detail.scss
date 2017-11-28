@@ -1,0 +1,44 @@
+.artist-hero-container {
+  display: flex;
+  position: relative;
+  top: 46px;
+  width: 100%;
+  height: 260px;
+  background: linear-gradient(135deg, $sand-dune, $dark-brown);
+
+  img {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    top: 30px;
+    left: 30px;
+  }
+
+  .artist-name {
+    font-size: 24px;
+    line-height: 37px;
+    padding: 5px;
+    background-color: black;
+    display: inline-block;
+    position: absolute;
+    top: 32px;
+    left: 230px;
+    color: $white;
+  }
+}
+
+.artist-detail-content-container {
+  width: 1240px;
+  min-height: 973px;
+  position: absolute;
+  top: 260px;
+  background-color: $white;
+
+  .edit-button {
+    padding: 5px 9px 5px 7px;
+    border: 1px solid $light-gray;
+    &:hover {
+      border-color: $gray;
+    }
+  }
+}

@@ -10,6 +10,10 @@
     position: absolute;
     top: 20px;
   }
+  .image-placeholder {
+    background: linear-gradient(135deg, $red-gray, $blue-gray);
+  }
+
 
   span{
     color: $orange;
@@ -89,7 +93,6 @@
   align-items: flex-end;
   width: 260px;
   height: 260px;
-  background: linear-gradient(135deg, $red-gray, $blue-gray);
   position: absolute;
   left: 21px;
   top: 109px;

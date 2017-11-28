@@ -94,13 +94,14 @@
   width: 120px;
   min-width: 80px;
   padding-bottom: 17px;
-  // border-left: 1px solid $darkest-gray;
+  border: none;
 }
 
 .profile-button {
   right: 80px;
   min-width: 100px;
   width: 8%;
+  border-left: 1px solid $darkest-gray;
 }
 
 .logout-button {

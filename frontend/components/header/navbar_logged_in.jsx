@@ -30,7 +30,7 @@ const NavbarLoggedIn = ({ currentArtist, logout, trackUploadForm }) => {
         >
           Upload
         </button>
-        <NavLink to='/profile' className="profile-button navbar-button" >
+        <NavLink to={`/artists/${currentArtist.id}`} className="profile-button navbar-button" >
           {currentArtist.name}
         </NavLink>
         <button

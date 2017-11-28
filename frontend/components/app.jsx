@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router';
 
 import TrackDetailContainer from './tracks/track_detail_container';
 import PlayerContainer from './audio/player_container';
+import ArtistDetailContainer from './artists/artist_detail_container';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       </header>
       <main id="main">
         <Route exact path='/tracks/:trackId' component={TrackDetailContainer} />
+        <Route exact path='/artists/:artistId' component={ArtistDetailContainer} />
       </main>
       <footer>
         <PlayerContainer />

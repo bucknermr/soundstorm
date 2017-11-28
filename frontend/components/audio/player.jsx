@@ -35,8 +35,10 @@ class Player extends React.Component {
     }
   }
 
-  handleKeyDown({ keyCode }) {
-    if (keyCode === 32) { this.togglePlayPause(); }
+  handleKeyDown(e) {
+    if (e.keyCode === 32 && e.target.tagName === 'BODY') {
+      this.togglePlayPause();
+    }
   }
 
   componentDidMount () {

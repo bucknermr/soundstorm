@@ -1,6 +1,7 @@
 import React from 'react';
 import SessionFormContainer from './session_form_container';
 import TrackUploadContainer from './track_upload_container';
+import ArtistEditContainer from './artist_edit_container';
 import ModalBackgroundContainer from './modal_background_container';
 
 const ModalRoot = ({ modalType }) => {
@@ -17,6 +18,12 @@ const ModalRoot = ({ modalType }) => {
       return (
         <ModalBackgroundContainer>
           <TrackUploadContainer />
+        </ModalBackgroundContainer>
+      );
+    case 'artist-edit':
+      return (
+        <ModalBackgroundContainer>
+          <ArtistEditContainer />
         </ModalBackgroundContainer>
       );
     default:

@@ -1,0 +1,89 @@
+@import '../base/layout.scss';
+@import './upload.scss';
+
+.artist-edit-modal {
+  @extend .modal-content;
+
+  height: 600px;
+  width: 850px;
+
+  h2 {
+    font-size: 22px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 30px 0px 9px 28px
+  }
+}
+
+.artist-edit-content-container {
+
+  width: 803px;
+  position: absolute;
+  height: auto;
+  top: 60px;
+  border: 1px solid black;
+  border-top: 1px solid $light-gray;
+
+  .image-placeholder {
+    top: 0px;
+    left: 0px;
+    position: relative;
+    img {
+      border-radius: 50%;
+      width: 260px;
+      height: 260px;
+    }
+    .update-image-button {
+      position: absolute;
+      bottom: 3px;
+    }
+  }
+}
+
+.artist-edit-input-fields-container {
+
+  width: 505px;
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+
+  label {
+    width: 100%;
+  }
+
+    input, textarea {
+      resize: vertical;
+      width: 100%;
+      border-radius: 4px;
+      color: #333;
+      font-weight: 400;
+      font-size: 14px;
+      padding: 3px 5px;
+      line-height: 1.5;
+      margin: 10px 0;
+      &:focus {
+        border-color: $medium-gray;
+      }
+    }
+
+    textarea {
+      height: 130px;
+    }
+
+    span {
+      color: $orange;
+    }
+
+    label.name {
+      position: absolute;
+      top: 25px;
+    }
+
+    label.bio {
+      position: absolute;
+      top: 100px;
+    }
+}
