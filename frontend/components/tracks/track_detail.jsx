@@ -68,7 +68,8 @@ class TrackDetail extends React.Component {
       <div>
         <div className="track-hero-container">
           { this.renderPlayPause() }
-
+          <h3 className="artist-name">Artist Name</h3>
+          <h2 className="track-title">{track.title}</h2>
           <WaveformContainer
             audioUrl={track.audioUrl}
             trackId={track.id}
@@ -79,11 +80,11 @@ class TrackDetail extends React.Component {
           <img src={track.imageUrl} ></img>
 
         </div>
+        <section className="track-detail-content-container">
+          <div className=""></div>
+        </section>
 
-        <ul>
-          <li>Title: {track.title}</li>
-          <li>Description: {track.description}</li>
-        </ul>
+        <p>{track.description}</p>
       </div>
     );
   }

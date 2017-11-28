@@ -2,6 +2,8 @@ class Artist < ApplicationRecord
   validates :name, :session_token, :password_digest, presence: true
   validates :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  has_attached_file :image
+  validates_attachment_file_name :image, matches: [/png\z/, /jpe?g\z/]
 
   has_many :tracks
 

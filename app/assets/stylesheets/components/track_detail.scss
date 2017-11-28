@@ -71,4 +71,40 @@
     }
   }
 
+  .track-title, .artist-name {
+    background-color: black;
+    display: inline-block;
+    position: absolute;
+  }
+
+  .track-title {
+    font-size: 24px;
+    height: 38px;
+    color: $white;
+    top: 60px;
+    left: 90px;
+    line-height: 37px;
+    padding: 0 10px;
+  }
+
+  .artist-name {
+    font-size: 16px;
+    line-height: 1.2;
+    padding: 3px 10px;
+    top: 32px;
+    left: 90px;
+    color: $gray;
+    cursor: pointer;
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.track-detail-content-container {
+  width: 1240px;
+  min-height: 973px;
+  position: absolute;
+  top: 426px;
+  background-color: $white;
 }

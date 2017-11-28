@@ -6,6 +6,7 @@
   height: 46px;
   width: 100%;
   background-color: $dark-gray;
+  z-index: 99;
 }
 
 .navbar {
@@ -16,8 +17,6 @@
   align-items: center;
   height: inherit;
   margin: 0 auto;
-  // min-width: 960px;
-  // max-width: 1240px;
 
   min-width: 1130px;
   max-width: 1240px;
