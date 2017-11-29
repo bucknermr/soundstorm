@@ -1,5 +1,6 @@
 import React from 'react';
 import ArtistSidebar from './artist_sidebar';
+import TrackIndexContainer from '../tracks/track_index_container';
 
 class ArtistDetail extends React.Component {
 
@@ -31,8 +32,8 @@ class ArtistDetail extends React.Component {
   }
 
   renderButtons() {
-    const { currentArtist, artist, showModal } = this.props;
-    if (currentArtist && currentArtist.id === this.state.artist.id) {
+    const { ownPage, artist, showModal } = this.props;
+    if (ownPage) {
       return (
         <div className="artist-buttons">
           <button
@@ -52,7 +53,7 @@ class ArtistDetail extends React.Component {
 
   render() {
     const { name, bio, imageUrl } = this.state.artist;
-
+    const artistId = this.props.match.params.artistId;
     return (
       <div>
         <header className="artist-hero-container">
@@ -61,16 +62,16 @@ class ArtistDetail extends React.Component {
           }
 
           <h3 className="artist-name">{name}</h3>
-          <section className="artist-detail-content-container">
-            <div className="artist-buttons-container">
-              {this.renderButtons()}
-            </div>
-            <div className="artist-main">
-              <div className="artist-track-index"></div>
-              <ArtistSidebar artist={this.state.artist} />
-            </div>
-          </section>
         </header>
+        <section className="artist-detail-content-container">
+          <div className="artist-buttons-container">
+            {this.renderButtons()}
+          </div>
+          <div className="artist-main">
+          <TrackIndexContainer artistId={artistId} />
+          <ArtistSidebar artist={this.state.artist} />
+        </div>
+      </section>
       </div>
     );
   }

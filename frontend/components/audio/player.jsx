@@ -56,6 +56,7 @@ class Player extends React.Component {
     if (paused && !audioEl.paused) {
       audioEl.pause();
     } else if (audioEl.paused) {
+      document.getElementById('player-container').classList.remove('hide');
       audioEl.play();
     }
 
@@ -75,7 +76,8 @@ class Player extends React.Component {
     const { track, position } = this.state;
 
     return (
-      <div>
+      <div id="player-container"
+        className="hide">
         <ReactAudioPlayer
           src={track.audioUrl}
           ref={(element) => { this.rap = element; }}

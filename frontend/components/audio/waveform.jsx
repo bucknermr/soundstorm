@@ -8,7 +8,6 @@ class Waveform extends React.Component {
 
   componentDidMount() {
     const { audioUrl, position, trackId, height, barHeight } = this.props;
-
     const wavesurfer = WaveSurfer.create({
       container: `#waveform-${trackId}`,
       height: height,

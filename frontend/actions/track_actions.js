@@ -46,8 +46,8 @@ export const createTrack = formData => dispatch => (
     )
 );
 
-export const requestTracks = () => dispatch => (
-  TracksApiUtil.fetchTracks()
+export const requestTracksByArtist = artistId => dispatch => (
+  TracksApiUtil.fetchTracksByArtist(artistId)
     .then(
       tracks => dispatch(receiveTracks(tracks)),
       errors => dispatch(receiveErrors(errors.responseJSON))

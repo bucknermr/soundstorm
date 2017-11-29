@@ -6,18 +6,18 @@ import { showModal } from '../../actions/modal_actions';
 import ArtistDetail from './artist_detail';
 
 const mapStateToProps = (state, { match }) => {
-  // debugger;
+  const { currentArtist } = state.session;
+  const artistId = Number(match.params.artistId);
+
+  const artist = state.entities.artists[artistId];
+  const ownPage = currentArtist && (currentArtist.id === artistId);
+
   return {
-    currentArtist: state.session.currentArtist,
-    artist: state.entities.artists[match.params.artistId],
+    ownPage,
+    artist,
     tracks: tracksArray(state)
   };
 };
-// const mapStateToProps = (state, { match }) => ({
-//   currentArtistId: state.session.currentArtist.id,
-//   artist: state.entities.artists[match.params.artistId],
-//   tracks: tracksArray(state)
-// });
 
 const mapDispatchToProps = dispatch => ({
   requestArtist: artistId => dispatch(requestArtist(artistId)),

@@ -80,15 +80,15 @@ audio.react-audio-player {
     bottom: 0px;
 }
 
+.hide {
+  display: none;
+}
+
 #main {
   width: 1240px;
   margin: 0 auto;
 }
 
-#root {
+body {
   background-color: $off-white;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  
 }

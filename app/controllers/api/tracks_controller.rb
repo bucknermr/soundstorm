@@ -1,6 +1,8 @@
 class Api::TracksController < ApplicationController
 
   def index
+    @tracks = Track.where(artist_id: params[:artist_id])
+    render :index
   end
 
   def show

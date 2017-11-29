@@ -2,12 +2,12 @@ import { SEEK_WAVEFORM } from '../actions/audio_actions';
 import { RECEIVE_TRACK, RECEIVE_TRACKS } from '../actions/track_actions';
 import merge from 'lodash/merge';
 
-// Format: 
+// Format:
 // { trackId: trackPosition }
 
 const waveformReducer = (state = {}, action) => {
   Object.freeze(state);
-
+  
   let newState;
 
   switch(action.type) {
@@ -16,11 +16,12 @@ const waveformReducer = (state = {}, action) => {
       newState[action.track.id] = 0;
       return newState;
     case RECEIVE_TRACKS:
-      newState = merge({}, state);
-      action.tracks.forEach(track => {
-        newState[track.id] = newState[track.id] || 0;
-      });
-      return newState;
+      return action.tracks;
+      // newState = merge({}, state);
+      // action.tracks.forEach(track => {
+      //   newState[track.id] = newState[track.id] || 0;
+      // });
+      // return newState;
     case SEEK_WAVEFORM:
       newState = merge({}, state);
       newState[action.trackId] = action.position;
