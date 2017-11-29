@@ -17,9 +17,11 @@ export const receiveTracks = tracks => ({
   tracks
 });
 
-export const receiveTrack = track => ({
+export const receiveTrack = ({ track, artists, comments }) => ({
   type: RECEIVE_TRACK,
-  track
+  track,
+  artists,
+  comments
 });
 
 export const removeTrack = track => ({
@@ -57,7 +59,7 @@ export const requestTracksByArtist = artistId => dispatch => (
 export const requestTrack = trackId => dispatch => (
   TracksApiUtil.fetchTrack(trackId)
     .then(
-      track => dispatch(receiveTrack(track)),
+      payload => dispatch(receiveTrack(payload)),
       errors => dispatch(receiveErrors(errors.responseJSON))
     )
 );

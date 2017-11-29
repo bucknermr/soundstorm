@@ -8,6 +8,7 @@ const mapStateToProps = ({ entities, ui }, { match }) => {
   const playing = parseInt(match.params.trackId) === ui.audio.trackId;
   return {
     track: entities.tracks[match.params.trackId],
+    artists: entities.artists,
     playing
   };
 };
