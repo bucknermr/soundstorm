@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import WaveformContainer from '../audio/waveform_container';
 import PlayPauseContainer from '../buttons/play_pause_container';
 
-const TrackIndexItem = ({ track, artist, play, pause }) => {
+const TrackIndexItem = ({ track, artist }) => {
   return (
     <div className="track-index-item">
       <Link to={`/tracks/${track.id}`} className="track-index-item-image">

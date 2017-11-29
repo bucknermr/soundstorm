@@ -14,13 +14,13 @@ const waveformReducer = (state = {}, action) => {
   switch(action.type) {
     case RECEIVE_TRACK:
       newState = merge({}, state);
-      newState[action.track.id] = 0;
+      newState[action.track.id] = newState[action.track.id] || 0;
       return newState;
     case RECEIVE_TRACKS:
     case RECEIVE_ARTIST:
       newState = merge({}, state);
       Object.keys(action.tracks).forEach(id => {
-        newState[id] = 0;
+        newState[id] = newState[id] || 0;
       });
       return newState;
     case SEEK_WAVEFORM:
