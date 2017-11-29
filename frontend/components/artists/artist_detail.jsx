@@ -4,30 +4,14 @@ import TrackIndexContainer from '../tracks/track_index_container';
 
 class ArtistDetail extends React.Component {
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      artist: {
-        id: '',
-        name: '',
-        bio: '',
-        imageUrl: ''
-      }
-    };
-  }
-
   componentDidMount() {
     this.props.requestArtist(this.props.match.params.artistId);
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.artist) {
-      this.setState({
-        artist: newProps.artist
-      });
-    } else {
-      this.props.requestArtist(newProps.match.params.artistId);
+    const artistId = Number(newProps.match.params.artistId);
+    if (newProps.artist.id !== artistId) {
+      this.props.requestArtist(artistId);
     }
   }
 
@@ -52,28 +36,31 @@ class ArtistDetail extends React.Component {
   }
 
   render() {
-    const { name, bio, imageUrl } = this.state.artist;
-    const artistId = this.props.match.params.artistId;
-    return (
-      <div>
-        <header className="artist-hero-container">
-          {
-            imageUrl ? (<img src={imageUrl}/>) : null
-          }
-
-          <h3 className="artist-name">{name}</h3>
-        </header>
-        <section className="artist-detail-content-container">
-          <div className="artist-buttons-container">
-            {this.renderButtons()}
-          </div>
-          <div className="artist-main">
-          <TrackIndexContainer artistId={artistId} />
-          <ArtistSidebar artist={this.state.artist} />
+    if (this.props.artist.id) {
+      const { name, bio, imageUrl } = this.props.artist;
+      const artistId = Number(this.props.match.params.artistId);
+      return (
+        <div>
+          <header className="artist-hero-container">
+            <img src={imageUrl}/>
+            <h3 className="artist-name">{name}</h3>
+          </header>
+          <section className="artist-detail-content-container">
+            <div className="artist-buttons-container">
+              {this.renderButtons()}
+            </div>
+            <div className="artist-main">
+              <TrackIndexContainer artistId={artistId} />
+              <ArtistSidebar artist={this.props.artist} />
+            </div>
+          </section>
         </div>
-      </section>
-      </div>
-    );
+      );
+    } else {
+      // TODO: spinner ???
+      return ( <div></div> );
+    }
+
   }
 }
 

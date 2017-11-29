@@ -6,38 +6,50 @@ class TrackIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = { tracks: [], artists: {} };
-    this.state = { tracks: [] };
+    this.state = {
+      tracks: [],
+      artists: null
+    };
   }
 
   componentDidMount() {
+    // debugger;
     if (this.props.artistId) {
       this.props.getTracks(this.props.artistId);
     }
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState({ tracks: newProps.tracks });
+    if (newProps.artistId !== this.props.artistId) {
+      this.props.getTracks(newProps.artistId);
+    }
   }
 
-  render() {
-    // const { tracks, artists } = this.state;
-    const { tracks, artist } = this.state;
-    const { artists } = this.props;
 
-    return (
-      <div className="track-index">
-        {
-          this.state.tracks.map(track => (
-            <TrackIndexItem
-              key={`track-${track.id}`}
-              track={track}
-              artist={artists[track.artistId]}
-            />
-          ))
-        }
-      </div>
-    );
+  render() {
+    const { tracks, artists } = this.props;
+
+    debugger;
+
+    // if ( tracks.length > artists ) {
+    if ( tracks.length > 0 && Object.keys(artists).length > 0 ) {
+      return (
+        <div className="track-index">
+          {
+            tracks.map(track => (
+              <TrackIndexItem
+                key={`track-${track.id}`}
+                track={track}
+                artist={artists[track.artistId]}
+              />
+            ))
+          }
+        </div>
+      );
+    } else {
+      return null;
+    }
+
   }
 }
 

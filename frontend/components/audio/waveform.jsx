@@ -7,15 +7,15 @@ class Waveform extends React.Component {
   }
 
   componentDidMount() {
-    const { audioUrl, position, trackId, height, barHeight } = this.props;
+    const { audioUrl, position, trackId, height, barHeight, progressColor, waveColor } = this.props;
     const wavesurfer = WaveSurfer.create({
       container: `#waveform-${trackId}`,
       height: height,
       barHeight: barHeight,
       barWidth: 2,
       cursorWidth: 0,
-      progressColor: '#fa5503',
-      waveColor: '#fff'
+      progressColor,
+      waveColor
     });
     wavesurfer.load(audioUrl);
     wavesurfer.on('ready', () => {

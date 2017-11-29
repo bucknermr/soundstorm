@@ -7,7 +7,7 @@ import merge from 'lodash/merge';
 
 const waveformReducer = (state = {}, action) => {
   Object.freeze(state);
-  
+
   let newState;
 
   switch(action.type) {
@@ -17,11 +17,6 @@ const waveformReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_TRACKS:
       return action.tracks;
-      // newState = merge({}, state);
-      // action.tracks.forEach(track => {
-      //   newState[track.id] = newState[track.id] || 0;
-      // });
-      // return newState;
     case SEEK_WAVEFORM:
       newState = merge({}, state);
       newState[action.trackId] = action.position;

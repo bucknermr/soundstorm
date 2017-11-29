@@ -9,8 +9,8 @@ const mapStateToProps = (state, { match }) => {
   const { currentArtist } = state.session;
   const artistId = Number(match.params.artistId);
 
-  const artist = state.entities.artists[artistId];
   const ownPage = currentArtist && (currentArtist.id === artistId);
+  const artist = state.entities.artistDetail;
 
   return {
     ownPage,

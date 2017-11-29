@@ -75,6 +75,8 @@ class TrackDetail extends React.Component {
             trackId={track.id}
             height={100}
             barHeight={3}
+            progressColor={'#fa5503'}
+            waveColor={'#fff'}
           />
 
           <img src={track.imageUrl} ></img>

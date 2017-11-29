@@ -1,5 +1,12 @@
 json.key_format! camelize: :lower
 
-json.extract! @track, :id, :title, :description
-json.audio_url asset_path(@track.audio.url)
-json.image_url asset_path(@track.image.url)
+json.partial! '/api/tracks/track', track: @track
+
+
+# json.set :track do
+#   json.partial! '/api/tracks/track', track: @track
+# end
+#
+# json.set :artist do
+#
+# end

@@ -1,0 +1,27 @@
+.track-index {
+  margin-left: 30px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.track-index-item {
+  height: 160px;
+  display: flex;
+  padding-bottom: 44px;
+  width: 860px;
+}
+
+.track-index-item-image {
+  display: block;
+  width: 160px;
+  height: 100%;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.track-index-item-content {
+  flex: 1;
+  padding-left: 16px;
+}
