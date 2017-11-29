@@ -7,6 +7,8 @@ class Artist < ApplicationRecord
 
   has_many :tracks
 
+  has_many :comments, foreign_key: :author_id
+
   after_initialize :ensure_session_token
 
   def ensure_session_token

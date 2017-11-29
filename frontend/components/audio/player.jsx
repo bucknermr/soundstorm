@@ -65,7 +65,7 @@ class Player extends React.Component {
 
   componentWillUnmount() {
     const body = document.getElementById('body');
-    body.removeEventLIstener('keydown', this.handleKeyDown);
+    body.removeEventListener('keydown', this.handleKeyDown);
   }
 
   componentDidUpdate() {

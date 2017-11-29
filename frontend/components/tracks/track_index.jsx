@@ -13,7 +13,6 @@ class TrackIndex extends React.Component {
   }
 
   componentDidMount() {
-    // debugger;
     if (this.props.artistId) {
       this.props.getTracks(this.props.artistId);
     }
@@ -29,9 +28,6 @@ class TrackIndex extends React.Component {
   render() {
     const { tracks, artists } = this.props;
 
-    debugger;
-
-    // if ( tracks.length > artists ) {
     if ( tracks.length > 0 && Object.keys(artists).length > 0 ) {
       return (
         <div className="track-index">

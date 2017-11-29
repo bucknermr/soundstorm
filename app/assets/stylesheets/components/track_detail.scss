@@ -33,38 +33,20 @@
     }
   }
 
-  .play-button-large {
-    display: flex;
-    position: relative;
+  .play-button {
     top: 30px;
     left: 20px;
-    background-color: $orange-2;
     width: 60px;
     height: 60px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color .2s;
-    &:hover {
-      background-color: $dark-orange;
-    }
     &:after {
-      content: '';
-      display: block;
-      position: absolute;
       top: 13px;
       left: 20px;
-      background-image: url("https://a-v2.sndcdn.com/assets/images/buttons/hero/play-69601b9.svg");
-      background-repeat: no-repeat;
       background-size: 40% 60%;
-      width: 100%;
-      height: 100%;
     }
   }
 
-  .pause-button-large {
-    @extend .play-button-large;
+  .pause-button {
     &:after {
-      background-image: url("https://a-v2.sndcdn.com/assets/images/buttons/hero/pause-1f3f227.svg");
       top: 14px;
       left: 18px;
       background-size: 42% 56%;

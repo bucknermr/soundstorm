@@ -16,7 +16,11 @@ const waveformReducer = (state = {}, action) => {
       newState[action.track.id] = 0;
       return newState;
     case RECEIVE_TRACKS:
-      return action.tracks;
+      newState = merge({}, state);
+      Object.keys(action.tracks).forEach(id => {
+        newState[id] = 0;
+      });
+      return newState;
     case SEEK_WAVEFORM:
       newState = merge({}, state);
       newState[action.trackId] = action.position;
