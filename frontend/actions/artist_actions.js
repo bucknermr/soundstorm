@@ -7,9 +7,10 @@ export const RECEIVE_ARTISTS = 'RECEIVE_ARTISTS';
 
 // Action Creators
 
-export const receiveArtist = artist => ({
+export const receiveArtist = ({ artist, tracks }) => ({
   type: RECEIVE_ARTIST,
-  artist
+  artist,
+  tracks
 });
 
 export const receiveArtists = artists => ({
@@ -17,11 +18,18 @@ export const receiveArtists = artists => ({
   artists
 });
 
+export const receiveArtistErrors = errors => ({
+
+});
+
 // Thunk Action Creators
 
 export const requestArtist = artistId => dispatch => (
   ArtistsApiUtil.fetchArtist(artistId)
-    .then(artist => dispatch(receiveArtist(artist)))
+    .then(
+      payload => dispatch(receiveArtist(payload)),
+      errors => dispatch(receiveArtistErrors(errors))
+    )
 );
 
 export const updateArtist = (formData, artistId) => dispatch => (

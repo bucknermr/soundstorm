@@ -11,10 +11,10 @@ const artistsReducer = (state = {}, action) => {
     case RECEIVE_ARTISTS:
     case RECEIVE_TRACK:
       return action.artists;
-    // case RECEIVE_ARTIST:
-    //   newState = merge({}, state);
-    //   newState[action.artist.id] = action.artist;
-    //   return newState;
+    case RECEIVE_ARTIST:
+      newState = merge({}, state);
+      newState[action.artist.id] = action.artist;
+      return newState;
     default:
       return state;
   }

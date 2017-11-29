@@ -10,7 +10,7 @@ const mapStateToProps = (state, { match }) => {
   const artistId = Number(match.params.artistId);
 
   const ownPage = currentArtist && (currentArtist.id === artistId);
-  const artist = state.entities.artistDetail;
+  const artist = state.entities.artists[artistId];
 
   return {
     ownPage,

@@ -9,8 +9,9 @@ class ArtistDetail extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    const currentArtist = this.props.artist;
     const artistId = Number(newProps.match.params.artistId);
-    if (newProps.artist.id !== artistId) {
+    if (!currentArtist || currentArtist.id !== artistId) {
       this.props.requestArtist(artistId);
     }
   }
@@ -36,7 +37,7 @@ class ArtistDetail extends React.Component {
   }
 
   render() {
-    if (this.props.artist.id) {
+    if (this.props.artist) {
       const { name, bio, imageUrl } = this.props.artist;
       const artistId = Number(this.props.match.params.artistId);
       return (

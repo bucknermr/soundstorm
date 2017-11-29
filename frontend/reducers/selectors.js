@@ -8,12 +8,3 @@ export const singleArtist = state => {
 export const tracksArray = state => {
   return values(state.entities.tracks);
 };
-
-export const combineArtistsWithDetail = state => {
-  const { artistDetail, artists } = state.entities;
-  if (artistDetail.id) {
-    return merge({}, artists, { [artistDetail.id]: artistDetail  });
-  } else {
-    return artists;
-  }
-};

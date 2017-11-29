@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
-import { tracksArray, combineArtistsWithDetail } from '../../reducers/selectors';
+import { tracksArray } from '../../reducers/selectors';
 import TrackIndex from './track_index';
 import { requestTracksByArtist } from '../../actions/track_actions';
 
-const mapStateToProps = (state, { artistId }) => ({
+const mapStateToProps = (state) => ({
   tracks: tracksArray(state),
-  artists: combineArtistsWithDetail(state),
-  artistId
+  artists: state.entities.artists
 });
 
 const mapDispatchToProps = (dispatch) => {
