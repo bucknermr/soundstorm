@@ -4,7 +4,6 @@ import ArtistEditContainer from './artist_edit_container';
 import ModalBackgroundContainer from './modal_background_container';
 
 
-// import TrackUploadContainer from './track_upload_container';
 import TrackFormContainer from './track_form_container';
 
 const ModalRoot = ({ modalType, content }) => {
@@ -21,7 +20,6 @@ const ModalRoot = ({ modalType, content }) => {
     case 'track-edit':
       return (
         <ModalBackgroundContainer>
-          {/* <TrackUploadContainer /> */}
           <TrackFormContainer formType={modalType} track={content} />
         </ModalBackgroundContainer>
       );
