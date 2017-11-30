@@ -7,18 +7,25 @@ class CommentForm extends React.Component {
       body: ''
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     this.setState({ body: e.target.value });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const { createComment, trackId } = this.props;
+    createComment(this.state, trackId);
+  }
+
   render() {
     return (
-      <form>
+      <form on >
         <img
-          className="user-icon"
-          src={this.props.currentUser.imageUrl}
+          className="artist-icon"
+          src={this.props.currentArtist.imageUrl}
         />
         <input
           className="comment-input"
@@ -27,7 +34,10 @@ class CommentForm extends React.Component {
           value={this.state.body}
           onChange={this.handleChange}
         />
+        <input type="submit" style="display: none"/>
       </form>
     );
   }
 }
+
+export default CommentForm;
