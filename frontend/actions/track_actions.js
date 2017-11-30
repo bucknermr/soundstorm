@@ -70,8 +70,8 @@ export const requestTrack = trackId => dispatch => (
     )
 );
 
-export const updateTrack = track => dispatch => (
-  TracksApiUtil.updateTrack(track)
+export const updateTrack = (formData, trackId) => dispatch => (
+  TracksApiUtil.updateTrack(formData, trackId)
     .then(
       updatedTrack => dispatch(receiveTrack(updatedTrack)),
       errors => dispatch(receiveErrors(errors.responseJSON))

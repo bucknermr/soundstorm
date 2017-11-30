@@ -1,10 +1,13 @@
 import React from 'react';
 import SessionFormContainer from './session_form_container';
-import TrackUploadContainer from './track_upload_container';
 import ArtistEditContainer from './artist_edit_container';
 import ModalBackgroundContainer from './modal_background_container';
 
-const ModalRoot = ({ modalType }) => {
+
+// import TrackUploadContainer from './track_upload_container';
+import TrackFormContainer from './track_form_container';
+
+const ModalRoot = ({ modalType, content }) => {
 
   switch(modalType) {
     case 'signup':
@@ -15,9 +18,11 @@ const ModalRoot = ({ modalType }) => {
         </ModalBackgroundContainer>
       );
     case 'track-upload':
+    case 'track-edit':
       return (
         <ModalBackgroundContainer>
-          <TrackUploadContainer />
+          {/* <TrackUploadContainer /> */}
+          <TrackFormContainer formType={modalType} track={content} />
         </ModalBackgroundContainer>
       );
     case 'artist-edit':

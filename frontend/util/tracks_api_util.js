@@ -24,11 +24,14 @@ export const createTrack = (formData) => (
   })
 );
 
-export const updateTrack = (track) => (
+export const updateTrack = (formData, trackId) => (
   $.ajax({
-    url: `api/tracks/${track.id}`,
+    url: `api/tracks/${trackId}`,
     method: 'PATCH',
-    data: { track }
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: formData
   })
 );
 

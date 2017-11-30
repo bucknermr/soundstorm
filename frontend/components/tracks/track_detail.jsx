@@ -16,7 +16,7 @@ class TrackDetail extends React.Component {
   }
 
   render () {
-    const { track, play, artists } = this.props;
+    const { track, play, artists, trackEditForm } = this.props;
 
     if (!track) { return null; }
 
@@ -48,6 +48,10 @@ class TrackDetail extends React.Component {
         </section>
 
         <p>{track.description}</p>
+
+        <button className="editTrack" onClick={() => trackEditForm(track)} >
+          Edit
+        </button>
       </div>
     );
   }

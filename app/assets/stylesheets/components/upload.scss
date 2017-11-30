@@ -1,7 +1,7 @@
 @import '../base/layout.scss';
 @import '../base/colors.scss';
 
-.track-upload-modal {
+.track-form-modal {
   @extend .modal-content;
   height: 515px;
   width: 800px;
@@ -29,7 +29,8 @@
 .file-upload-button {
   @extend button;
   position: absolute;
-  top: 50px;
+  top: 60px;
+  left: 313px;
   padding: 10px;
   font-size: 14px;
   height: 30px;
@@ -39,12 +40,14 @@
 
 .audio-file-name {
   position: absolute;
-  top: 86px;
+  top: 68px;
+  left: 500px;
   color: blue;
+  font-size: 14px;
 }
 
 
-.upload-input-fields-container {
+.track-input-fields-container {
   display: flex;
   position: absolute;
   left: 305px;
