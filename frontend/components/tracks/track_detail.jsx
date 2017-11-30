@@ -34,7 +34,7 @@ class TrackDetail extends React.Component {
             audioUrl={track.audioUrl}
             trackId={track.id}
             height={100}
-            barHeight={3}
+            barHeight={1.5}
             progressColor={'#fa5503'}
             waveColor={'#fff'}
           />
@@ -43,7 +43,8 @@ class TrackDetail extends React.Component {
 
         </div>
         <section className="track-detail-content-container">
-          <div className=""></div>
+          <div className="comment-form-container">
+          </div>
         </section>
 
         <p>{track.description}</p>

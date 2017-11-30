@@ -4,6 +4,8 @@ import * as ArtistsApiUtil from '../util/artists_api_util';
 
 export const RECEIVE_ARTIST = 'RECEIVE_ARTIST';
 export const RECEIVE_ARTISTS = 'RECEIVE_ARTISTS';
+export const RECEIVE_ARTIST_ERRORS = 'RECEIVE_ARTIST_ERRORS';
+export const UPDATE_ARTIST = 'UPDATE_ARTIST';
 
 // Action Creators
 
@@ -18,9 +20,16 @@ export const receiveArtists = artists => ({
   artists
 });
 
-export const receiveArtistErrors = errors => ({
-
+export const receiveArtistUpdate = artist => ({
+  type: UPDATE_ARTIST,
+  artist
 });
+
+export const receiveArtistErrors = errors => ({
+  type: RECEIVE_ARTIST_ERRORS,
+  errors
+});
+
 
 // Thunk Action Creators
 
@@ -34,5 +43,5 @@ export const requestArtist = artistId => dispatch => (
 
 export const updateArtist = (formData, artistId) => dispatch => (
   ArtistsApiUtil.updateArtist(formData, artistId)
-    .then(updatedArtist => dispatch(receiveArtist(updatedArtist)))
+    .then(artist => dispatch(receiveArtistUpdate(artist)))
 );

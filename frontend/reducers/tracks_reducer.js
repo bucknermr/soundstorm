@@ -1,6 +1,7 @@
 import {
   RECEIVE_TRACKS,
   RECEIVE_TRACK,
+  RECEIVE_TRACK_DETAIL,
   REMOVE_TRACK
 } from '../actions/track_actions';
 import { RECEIVE_ARTIST } from '../actions/artist_actions';
@@ -16,6 +17,7 @@ const tracksReducer = (state = {}, action) => {
     case RECEIVE_ARTIST:
       return action.tracks;
     case RECEIVE_TRACK:
+    case RECEIVE_TRACK_DETAIL:
       newState = merge({}, state);
       newState[action.track.id] = action.track;
       return newState;

@@ -1,5 +1,5 @@
 import { SEEK_WAVEFORM } from '../actions/audio_actions';
-import { RECEIVE_TRACK, RECEIVE_TRACKS } from '../actions/track_actions';
+import { RECEIVE_TRACK, RECEIVE_TRACKS, RECEIVE_TRACK_DETAIL } from '../actions/track_actions';
 import { RECEIVE_ARTIST } from '../actions/artist_actions';
 import merge from 'lodash/merge';
 
@@ -13,6 +13,7 @@ const waveformReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_TRACK:
+    case RECEIVE_TRACK_DETAIL:
       newState = merge({}, state);
       newState[action.track.id] = newState[action.track.id] || 0;
       return newState;

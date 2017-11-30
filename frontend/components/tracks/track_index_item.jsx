@@ -25,7 +25,7 @@ const TrackIndexItem = ({ track, artist }) => {
           audioUrl={track.audioUrl}
           trackId={track.id}
           height={60}
-          barHeight={3}
+          barHeight={1.5}
           progressColor={'#fa5503'}
           waveColor={'#666'}
         />

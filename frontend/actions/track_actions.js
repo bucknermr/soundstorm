@@ -2,8 +2,9 @@ import * as TracksApiUtil from '../util/tracks_api_util';
 
 // Constants
 
-export const RECEIVE_TRACKS = 'RECEIVE_TRACKS';
 export const RECEIVE_TRACK = 'RECEIVE_TRACK';
+export const RECEIVE_TRACKS = 'RECEIVE_TRACKS';
+export const RECEIVE_TRACK_DETAIL = 'RECEIVE_TRACK_DETAIL';
 export const REMOVE_TRACK = 'DELETE_TRACK';
 
 
@@ -17,11 +18,16 @@ export const receiveTracks = tracks => ({
   tracks
 });
 
-export const receiveTrack = ({ track, artists, comments }) => ({
-  type: RECEIVE_TRACK,
+export const receiveTrackDetail = ({ track, artists, comments }) => ({
+  type: RECEIVE_TRACK_DETAIL,
   track,
   artists,
   comments
+});
+
+export const receiveTrack = track => ({
+  type: RECEIVE_TRACK,
+  track
 });
 
 export const removeTrack = track => ({
@@ -59,7 +65,7 @@ export const requestTracksByArtist = artistId => dispatch => (
 export const requestTrack = trackId => dispatch => (
   TracksApiUtil.fetchTrack(trackId)
     .then(
-      payload => dispatch(receiveTrack(payload)),
+      payload => dispatch(receiveTrackDetail(payload)),
       errors => dispatch(receiveErrors(errors.responseJSON))
     )
 );

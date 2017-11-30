@@ -10,10 +10,10 @@ class Waveform extends React.Component {
     const { audioUrl, position, trackId, height, barHeight, progressColor, waveColor } = this.props;
     const wavesurfer = WaveSurfer.create({
       container: `#waveform-${trackId}`,
-      height: height,
-      barHeight: barHeight,
       barWidth: 2,
       cursorWidth: 0,
+      height,
+      barHeight,
       progressColor,
       waveColor
     });

@@ -18,7 +18,7 @@ class Api::TracksController < ApplicationController
     @track = Track.new(track_params)
     @track.artist_id = current_artist.id
     if @track.save
-      render :show
+      render :track
     else
       render json: @track.errors.full_messages, status: 422
     end
