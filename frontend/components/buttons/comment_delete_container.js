@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { deleteComment } from '../../actions/comment_actions';
-import CommentIndexItem from './comment_index_item';
+import CommentDelete from './comment_delete';
 
 const mapDispatchToProps = dispatch => ({
   deleteComment: commentId => dispatch(deleteComment(commentId))
@@ -9,4 +9,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   null,
   mapDispatchToProps
-)(CommentIndexItem);
+)(CommentDelete);

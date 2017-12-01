@@ -31,13 +31,7 @@
   }
 }
 
-// .artist-detail-content-container {
 .main-content-container {
-  width: 1240px;
-  min-height: 973px;
-  position: absolute;
-  top: 306px;
-  background-color: $white;
 
   .edit-button {
     padding: 5px 9px 5px 7px;
@@ -101,5 +95,4 @@
 
 .artist-content-container {
   @extend .main-content-container;
-  top: 306px;
 }

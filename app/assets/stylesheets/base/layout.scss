@@ -87,6 +87,7 @@ audio.react-audio-player {
 #main {
   width: 1240px;
   margin: 0 auto;
+  height: auto;
 }
 
 body {
@@ -138,7 +139,9 @@ body {
 .main-content-container {
   width: 1240px;
   min-height: 973px;
-  position: absolute;
+  min-height: 500px;
+  height: auto;
+  padding-bottom: 100px;
   background-color: $white;
 }
 

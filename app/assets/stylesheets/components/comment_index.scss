@@ -21,16 +21,28 @@
 
 .comment-index-item {
   display: flex;
-  height: 45px;
+  position: relative;
+  height: auto;
   padding-bottom: 20px;
+
+  .profile-icon-round-small {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  &:hover .comment-delete-container {
+    display: block;
+  }
 
 }
 
 .comment-index-item-content {
-  width: 100%;
-  margin-left: 10px;
+  width: 592px;
+  margin-top: 12px;
+  margin-left: 60px;
 
-  div {
+  .comment-name-timestamp {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -44,5 +56,105 @@
       color: $medium-gray;
       font-size: 11px;
     }
+  }
+}
+
+.comment-body-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+
+  .comment-body {
+    display: block;
+  }
+}
+
+.comment-delete-container {
+  display: none;
+  position: absolute;
+  right: 0px;
+  bottom: 32px;
+
+  .comment-trash-button {
+    position: absolute;
+    right: 10px;
+    box-sizing: border-box;
+    border: 1px solid $light-gray;
+    background-color: $white;
+    &:hover {
+      border-color: $gray;
+    }
+  }
+
+  .comment-delete-dropdown {
+    position: absolute;
+    display: flex;
+    width: 220px;
+    height: 80px;
+    background-color: white;
+    border: 1px solid $gray;
+    box-shadow: 0 2px 7px -1px rgba(0,0,0,.4);
+    top: 33px;
+    right: -10px;
+    z-index: 5;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    p {
+      font-size: 12px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      line-height: 14px;
+    }
+
+    button {
+      font-size: 12px;
+      margin: 0px;
+      border: 1px solid $light-gray;
+      &:hover {
+        border-color: $gray;
+      }
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+
+    .cancel-button {
+      width: 55px
+    }
+    .yes-button {
+      width: 38px
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      right: 26px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 8px solid white;
+      z-index: 2;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: 26px;
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 8px solid $gray;
+    }
+  }
+}
+
+.selected {
+  display: block;
+  .comment-trash-button:hover {
+    border-color: #f50;
   }
 }

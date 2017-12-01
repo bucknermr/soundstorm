@@ -1,9 +1,10 @@
 @import '../base/colors.scss';
+@import '../base/layout.scss';
 
 .track-hero-container {
-  display: flex;
-  position: relative;
+  @extend .hero-container;
   top: 46px;
+  margin-bottom: 46px;
   width: 100%;
   height: 380px;
   background: linear-gradient(135deg, $sand-dune, $dark-brown);
@@ -85,15 +86,9 @@
 
 .track-content-container {
   @extend .main-content-container;
-
-  min-height: 500px;
-  top: 426px;
   padding-top: 20px;
   padding-left: 33px;
   background-color: $white;
-
-
-  border: 1px solid black;
 }
 
 .content-main {
@@ -103,6 +98,7 @@
   .artist-info {
     display: flex;
     flex-direction: column;
+    position: absolute;
     justify-content: flex-start;
     align-items: center;
     width: 120px;
@@ -132,9 +128,8 @@
   .track-content-wrapper {
     display: flex;
     flex-wrap: wrap;
-    position: absolute;
-    left: 145px;
-    top: 20px;
+    margin-top: 20px;
+    margin-left: 150px;
     width: 670px;
 
 

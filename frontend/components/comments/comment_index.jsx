@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentIndexItemContainer from './comment_index_item_container';
+import CommentIndexItem from './comment_index_item';
 
 const CommentIndex = (props) => {
   const { comments, artists, trackArtistId, currentArtistId } = props;
@@ -17,7 +17,7 @@ const CommentIndex = (props) => {
       </p>
       {
         comments.map(comment => (
-          <CommentIndexItemContainer
+          <CommentIndexItem
             background={
               trackArtistId === comment.authorId ? (
                 'off-white-background') : ' '
