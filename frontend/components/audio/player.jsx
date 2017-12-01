@@ -13,20 +13,24 @@ class Player extends React.Component {
 
     this.updateWaveformPosition = this.updateWaveformPosition.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
   }
 
   updateWaveformPosition(pos) {
     this.props.seekWaveform(pos, this.state.track.id);
   }
 
+  handlePlay() {
+
+  }
+
 
   togglePlayPause() {
     const { audioEl } = this.rap;
-    const { play, pause } = this.props;
     if(audioEl.paused) {
-      play(this.state.track);
+      audioEl.play();
     } else {
-      pause(this.state.track);
+      audioEl.pause();
     }
   }
 

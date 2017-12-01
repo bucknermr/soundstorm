@@ -9,9 +9,7 @@ const mapStateToProps = ({ ui }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  seekWaveform: (position, trackId) => dispatch(seekWaveform(position, trackId)),
-  play: (track) => dispatch(play(track)),
-  pause: (track) => dispatch(pause(track))
+  seekWaveform: (position, trackId) => dispatch(seekWaveform(position, trackId))
 });
 
 export default connect(

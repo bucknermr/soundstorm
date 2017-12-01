@@ -40,6 +40,9 @@ class Api::TracksController < ApplicationController
   end
 
   def destroy
+    @track = Track.find(params[:id])
+    @track.destroy!
+    render :track
   end
 
   private

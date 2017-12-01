@@ -4,6 +4,8 @@ import WaveformContainer from '../audio/waveform_container';
 import PlayPauseContainer from '../buttons/play_pause_container';
 import CommentFormContainer from '../comments/comment_form_container';
 import CommentIndexContainer from '../comments/comment_index_container';
+import TrackButtonsContainer from '../buttons/track_buttons_container';
+import InlineTrackStats from './inline_track_stats';
 
 class TrackDetail extends React.Component {
 
@@ -18,7 +20,8 @@ class TrackDetail extends React.Component {
   }
 
   render () {
-    const { track, artists, trackEditForm } = this.props;
+
+    const { track, artists, trackEditForm, currentArtist } = this.props;
 
     if (!track) { return null; }
 
@@ -52,6 +55,14 @@ class TrackDetail extends React.Component {
         </div>
         <section className="track-content-container">
           <CommentFormContainer trackId={track.id} />
+          <div>
+            {
+              currentArtist && currentArtist.id === trackArtist.id ? (
+                <TrackButtonsContainer track={track} />
+              ) : null
+            }
+            <InlineTrackStats track={track} />
+          </div>
           <div className="content-main">
 
             <div className="artist-info">
@@ -74,9 +85,6 @@ class TrackDetail extends React.Component {
             </div>
 
           </div>
-          <button className="edit-track" onClick={() => trackEditForm(track)} >
-            Edit
-          </button>
         </section>
 
 

@@ -1,0 +1,46 @@
+@import '../base/colors.scss';
+
+.more-container {
+  .more-button {
+    border: 1px solid $light-gray;
+    &:hover {
+      border-color: $gray;
+    }
+    span {
+      padding-right: 4px;
+      font-weight: 900;
+      position: relative;
+      bottom: 4px;
+    }
+  }
+}
+.selected {
+  .more-button {
+    border-color: #f50;
+    color: #f50;
+  }
+}
+
+.more-dropdown {
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 150px;
+  border: 1px solid $light-gray;
+  box-sizing: border-box;
+  button {
+    width: 100%;
+    i {
+      padding: 5px;
+    }
+    &:hover {
+      background-color: $off-white;
+    }
+  }
+  .track-edit-button {
+    border-bottom: 1px solid $light-gray;
+  }
+}

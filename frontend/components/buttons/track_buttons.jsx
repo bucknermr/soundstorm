@@ -1,6 +1,6 @@
 import React from 'react';
 
-class CommentDelete extends React.Component {
+class TrackButtons extends React.Component {
 
   constructor(props) {
     super(props);
@@ -17,7 +17,8 @@ class CommentDelete extends React.Component {
   }
 
   handleDelete(e) {
-    this.props.deleteComment(this.props.commentId);
+    this.props.deleteTrack(this.props.track)
+      .then(() => this.props.history.push('/'));
   }
 
   handleClickOutside(e) {
@@ -39,46 +40,46 @@ class CommentDelete extends React.Component {
     this.setState({ selected: !this.state.selected });
   }
 
-  deleteDropdown() {
+  moreDropdown() {
     return (
       <div
-        className="comment-delete-dropdown"
+        className="more-dropdown"
         ref={dropdown => { this.dropdown = dropdown; }}>
-        <p>Do you really want to remove this comment?</p>
+        {/* <p>Do you really want to remove this comment?</p> */}
         <button
-          className="cancel-button"
-          onClick={this.toggle}>
-          Cancel
+          className="track-edit-button"
+          onClick={() => this.props.trackEditForm(this.props.track)}>
+          <i className="fa fa-pencil" aria-hidden="true"></i>Edit Track
         </button>
         <button
-          className="yes-button"
+          className="delete-button"
           onClick={this.handleDelete}>
-          Yes
+          <i className="fa fa-trash" aria-hidden="true"></i>Delete track
         </button>
       </div>
     );
   }
 
-  deleteButton () {
+  moreButton () {
     return (
       <button
-        className="comment-trash-button"
+        className="more-button"
         onClick={this.handleClick}>
-        <i className="fa fa-trash" aria-hidden="true"></i>
+        <span>...</span>More
       </button>
     );
   }
 
   render () {
     return (
-      <div className={`comment-delete-container ${
+      <div className={`more-container ${
         this.state.selected ? 'selected' : ''
       }`}>
-        { this.deleteButton() }
-        { this.state.selected ? this.deleteDropdown() : null }
+        { this.moreButton() }
+        { this.state.selected ? this.moreDropdown() : null }
       </div>
     );
   }
 }
 
-export default CommentDelete;
+export default TrackButtons;
