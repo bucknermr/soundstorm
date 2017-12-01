@@ -13,7 +13,7 @@ const ModalRoot = ({ modalType, content }) => {
     case 'signin':
       return (
         <ModalBackgroundContainer>
-          <SessionFormContainer formType={modalType} />
+          <SessionFormContainer formType={modalType} message={content} />
         </ModalBackgroundContainer>
       );
     case 'track-upload':

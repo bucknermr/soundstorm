@@ -3,6 +3,8 @@
 .navbar-container {
   margin: 0 auto;
   position: fixed;
+  left: 0px;
+  top: 0px;
   height: 46px;
   width: 100%;
   background-color: $dark-gray;
@@ -100,8 +102,14 @@
 .profile-button {
   right: 80px;
   min-width: 100px;
+
   width: 8%;
   border-left: 1px solid $darkest-gray;
+
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .logout-button {

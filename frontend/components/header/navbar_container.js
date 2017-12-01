@@ -15,7 +15,8 @@ const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
   signinForm: () => dispatch(showModal('signin')),
   signupForm: () => dispatch(showModal('signup')),
-  trackUploadForm: () => dispatch(showModal('track-upload'))
+  trackUploadForm: () => dispatch(showModal('track-upload')),
+  uploadLoggedOut: (message) => dispatch(showModal('signup', message))
 });
 
 export default withRouter(

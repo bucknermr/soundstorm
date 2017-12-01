@@ -45,13 +45,14 @@ class SessionForm extends React.Component {
 
   render () {
     const { email, name, password } = this.state;
-    const { formType, errors } = this.props;
+    const { formType, errors, message } = this.props;
     const submitValue = formType === 'signin' ? 'Sign In' : 'Create Account';
 
     return (
       <form
         className="session-form animated slideInDown"
         onSubmit={this.handleSubmit} >
+        <h3 className="modal-message">{message}</h3>
         <input
           className="input-text-large"
           type='text'
@@ -89,7 +90,7 @@ class SessionForm extends React.Component {
         </button>
 
         <Errors errors={errors}/>
-        
+
       </form>
     );
   }

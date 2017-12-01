@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { createComment } from '../../actions/comment_actions';
+import { showModal } from '../../actions/modal_actions';
 import CommentForm from './comment_form';
 
 const mapStateToProps = ({ session }) => ({
@@ -7,7 +8,8 @@ const mapStateToProps = ({ session }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createComment: (comment, trackId) => dispatch(createComment(comment, trackId))
+  createComment: (comment, trackId) => dispatch(createComment(comment, trackId)),
+  signInForm: (message) => dispatch(showModal('signin', message))
 });
 
 export default connect(

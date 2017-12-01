@@ -17,21 +17,28 @@ class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.body) {
-      const { createComment, trackId } = this.props;
-      createComment(this.state, trackId);
-      this.setState({ body: '' });
+    if (!this.props.currentUser) {
+      this.props.signInForm("Please sign in to comment!");
+    } else {
+      if (this.state.body) {
+        const { createComment, trackId } = this.props;
+        createComment(this.state, trackId);
+        this.setState({ body: '' });
+      }
     }
   }
 
   render() {
+    const { currentArtist } = this.props;
+    const imageUrl = currentArtist ? ( currentArtist.imageUrl
+      ) : ( '/images/original/missing.png' );
     return (
       <form
         className="comment-form"
         onSubmit={this.handleSubmit}>
         <img
           className="artist-icon"
-          src={this.props.currentArtist.imageUrl}
+          src={imageUrl}
         />
         <input
           className="comment-input"

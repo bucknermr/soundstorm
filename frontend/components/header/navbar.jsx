@@ -8,7 +8,8 @@ const Navbar = (
     currentArtist,
     signupForm,
     signinForm,
-    trackUploadForm
+    trackUploadForm,
+    uploadLoggedOut
   }) => {
 
   if (currentArtist) {
@@ -24,6 +25,7 @@ const Navbar = (
       <NavbarLoggedOut
         signinForm={signinForm}
         signupForm={signupForm}
+        uploadLoggedOut={uploadLoggedOut}
       />
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-const NavbarLoggedOut = ({ signinForm, signupForm }) => (
+const NavbarLoggedOut = ({ signinForm, signupForm, uploadLoggedOut }) => (
   <div className='navbar-container'>
     <header className="navbar logged-out">
       <Link to='/' className="logo-button-full navbar-button"></Link>
@@ -18,9 +18,12 @@ const NavbarLoggedOut = ({ signinForm, signupForm }) => (
           <i className="fa fa-search" aria-hidden="true"></i>
         </button>
       </form>
-      <NavLink to='/upload' className="upload-button navbar-button" >
+      <button className="upload-button navbar-button"
+        onClick={() => uploadLoggedOut("Please signup to upload your own music!")}>
         Upload
-      </NavLink>
+      </button>
+      {/* <NavLink to='/upload' className="upload-button navbar-button" >
+      </NavLink> */}
       <button
         type="button"
         onClick={signinForm}
