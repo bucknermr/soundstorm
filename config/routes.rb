@@ -21,4 +21,9 @@ Rails.application.routes.draw do
     to: 'api/tracks#play',
     via: [:patch],
     defaults: { format: :json }
+
+  match 'api/tracks/charts',
+    to: 'api/tracks#charts',
+    via: [:get],
+    defaults: { format: :json }
 end

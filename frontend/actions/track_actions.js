@@ -13,9 +13,10 @@ export const CLEAR_TRACK_ERRORS =  'CLEAR_TRACK_ERRORS';
 
 // Action Creators
 
-export const receiveTracks = tracks => ({
+export const receiveTracks = ({ tracks, artists }) => ({
   type: RECEIVE_TRACKS,
-  tracks
+  tracks,
+  artists
 });
 
 export const receiveTrackDetail = ({ track, artists, comments }) => ({
@@ -56,6 +57,13 @@ export const createTrack = formData => dispatch => (
 
 export const requestTracksByArtist = artistId => dispatch => (
   TracksApiUtil.fetchTracksByArtist(artistId)
+    .then(
+      tracks => dispatch(receiveTracks(tracks)),
+      errors => dispatch(receiveErrors(errors.responseJSON))
+    )
+);
+export const requestTracksByPlayCount = limit => dispatch => (
+  TracksApiUtil.fetchTracksByPlayCount(limit)
     .then(
       tracks => dispatch(receiveTracks(tracks)),
       errors => dispatch(receiveErrors(errors.responseJSON))

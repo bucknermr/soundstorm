@@ -1,8 +1,16 @@
 class Api::TracksController < ApplicationController
 
   def index
-    @tracks = Track.where(artist_id: params[:artist_id])
+    # @tracks = Track.where(artist_id: params[:artist_id])
+    # render :index
+
+
+    @tracks = Track.includes(:artist)
+      .order(play_count: :desc)
+      .limit(12)
+      # .limit(params[:track][:limit])
     render :index
+
   end
 
   def show
@@ -38,6 +46,14 @@ class Api::TracksController < ApplicationController
     @track.play_count += 1
     @track.save!
     render :track
+  end
+
+  def charts
+    # @tracks = Track.includes(:artist)
+    #   .order(play_count: :desc)
+    #   .limit(12)
+    #   # .limit(params[:track][:limit])
+    # render :index
   end
 
   def destroy

@@ -6,6 +6,14 @@ export const fetchTracksByArtist = (artistId) => (
   })
 );
 
+export const fetchTracksByPlayCount = (limit) => (
+  $.ajax({
+    url: 'api/tracks/',
+    method: 'GET'
+    // data: { track: { limit } }
+  })
+);
+
 export const fetchTrack = (trackId) => (
   $.ajax({
     url: `api/tracks/${trackId}`,
