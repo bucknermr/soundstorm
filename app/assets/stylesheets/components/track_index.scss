@@ -37,6 +37,21 @@
       left: 18px;
       background-size: 14px 24px;
     }
+
+
+  }
+  .track-data, .inline-track-stats {
+    position: absolute;
+    display: flex;
+    font-size: 14px;
+    right: 10px;
+    bottom: 0px;
+    a {
+      color: $medium-gray
+    }
+    i {
+      padding: 0 5px 0 10px;
+    }
   }
 
   .pause-button {
@@ -90,16 +105,4 @@
       opacity: .9;
     }
   }
-}
-
-.track-data {
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-    a {
-      color: $medium-gray
-    }
-    i {
-      padding-right: 5px;
-    }
 }

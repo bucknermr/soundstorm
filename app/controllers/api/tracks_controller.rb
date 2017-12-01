@@ -36,6 +36,7 @@ class Api::TracksController < ApplicationController
   def play
     @track = Track.find(params[:id])
     @track.play_count += 1
+    @track.save!
     render :track
   end
 

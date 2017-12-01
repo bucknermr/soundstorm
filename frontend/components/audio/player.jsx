@@ -21,7 +21,7 @@ class Player extends React.Component {
   }
 
   handlePlay() {
-
+    this.props.incrementPlayCount(this.state.track.id);
   }
 
 
@@ -82,6 +82,7 @@ class Player extends React.Component {
           ref={element => { this.rap = element; }}
           autoPlay
           controls
+          onPlay={this.handlePlay}
           listenInterval={100}
           onListen={this.updateWaveformPosition}
           onSeeked={ e => (

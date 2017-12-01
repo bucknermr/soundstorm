@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import WaveformContainer from '../audio/waveform_container';
 import PlayPauseContainer from '../buttons/play_pause_container';
+import InlineTrackStats from './inline_track_stats';
 
 const TrackIndexItem = ({ track, artist }) => {
   return (
@@ -29,7 +30,10 @@ const TrackIndexItem = ({ track, artist }) => {
           progressColor={'#fa5503'}
           waveColor={'#666'}
         />
-        <div className="track-data">
+
+        <InlineTrackStats track={track} detail={false} />
+
+        {/* <div className="track-data">
           {
             track.commentCount ? (
               <Link to={`/tracks/${track.id}`} >
@@ -37,7 +41,7 @@ const TrackIndexItem = ({ track, artist }) => {
               </Link>
             ) : null
           }
-        </div>
+        </div> */}
       </div>
     </div>
   );

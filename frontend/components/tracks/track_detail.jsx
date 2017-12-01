@@ -55,15 +55,15 @@ class TrackDetail extends React.Component {
         </div>
         <section className="track-content-container">
           <CommentFormContainer trackId={track.id} />
-          <div>
-            {
-              currentArtist && currentArtist.id === trackArtist.id ? (
-                <TrackButtonsContainer track={track} />
-              ) : null
-            }
-            <InlineTrackStats track={track} />
-          </div>
           <div className="content-main">
+            <div className="track-stats-buttons-container">
+              {
+                currentArtist && currentArtist.id === trackArtist.id ? (
+                  <TrackButtonsContainer track={track} />
+                ) : null
+              }
+              <InlineTrackStats track={track} detail={true} />
+            </div>
 
             <div className="artist-info">
               <Link to={`/artists/${trackArtist.id}`}>

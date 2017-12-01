@@ -1,21 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const InlineTrackStats = ({ playCount, commentCount }, detail) => {
-
+const InlineTrackStats = ({ track, detail }) => {
   return (
-    <div>
+    <div className="inline-track-stats">
       {
-        playCount ? (
+        track.playCount ? (
           <p>
-            <i className="fa fa-play" aria-hidden="true"></i>{playCount}
+            <i className="fa fa-play" aria-hidden="true"></i>{track.playCount}
           </p>
         ) : null
       }
       {
-        commentCount && !detail ? (
-          <p>
-            <i class="fa fa-comment" aria-hidden="true"></i>{commentCount}
-          </p>
+        track.commentCount && !detail ? (
+          <Link to={`/tracks/${track.id}`}>
+            <i class="fa fa-comment" aria-hidden="true"></i>{track.commentCount}
+          </Link>
         ) : null
       }
     </div>
