@@ -48,14 +48,6 @@ class Api::TracksController < ApplicationController
     render :track
   end
 
-  def charts
-    # @tracks = Track.includes(:artist)
-    #   .order(play_count: :desc)
-    #   .limit(12)
-    #   # .limit(params[:track][:limit])
-    # render :index
-  end
-
   def destroy
     @track = Track.find(params[:id])
     @track.destroy!
