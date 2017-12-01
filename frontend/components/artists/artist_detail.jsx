@@ -46,11 +46,11 @@ class ArtistDetail extends React.Component {
             <img src={imageUrl}/>
             <h3 className="artist-name">{name}</h3>
           </header>
-          <section className="artist-detail-content-container">
+          <section className="artist-content-container">
             <div className="artist-buttons-container">
               {this.renderButtons()}
             </div>
-            <div className="artist-main">
+            <div className="content-main">
               <TrackIndexContainer artistId={artistId} />
               <ArtistSidebar artist={this.props.artist} />
             </div>

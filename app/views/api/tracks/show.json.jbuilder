@@ -1,11 +1,12 @@
 json.key_format! camelize: :lower
 
 artists = {}
-artists[@track.artist_id] = @track.artist
 
 json.set! :track do
   json.partial! '/api/tracks/track', track: @track
 end
+
+artists[@track.artist.id] = @track.artist
 
 json.comments({})
 json.comments do
@@ -13,8 +14,14 @@ json.comments do
     json.set! comment.id do
       json.partial! '/api/comments/comment', comment: comment
     end
-    artists[comment.author_id] = comment.author
+    artists[comment.author.id] = comment.author
   end
 end
 
-json.artists(artists)
+json.artists do
+  artists.each do |artist_id, artist|
+    json.set! artist_id do
+      json.partial! '/api/artists/artist', artist: artist
+    end
+  end
+end

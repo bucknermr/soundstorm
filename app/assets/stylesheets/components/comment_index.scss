@@ -1,0 +1,48 @@
+@import '../base/colors.scss';
+
+.comment-index {
+  margin-top: 20px;
+  width: 100%;
+  .comment-count {
+    color: $medium-gray;
+    width: 100%;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid $off-white;
+    i {
+      padding-right: 5px;
+    }
+  }
+}
+
+.off-white-background {
+  background-color: $off-white;
+}
+
+.comment-index-item {
+  display: flex;
+  height: 45px;
+  padding-bottom: 20px;
+
+}
+
+.comment-index-item-content {
+  width: 100%;
+  margin-left: 10px;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+
+    .artist-link-name {
+      color: $medium-gray;
+      font-size: 12px;
+    }
+    .timeago {
+      color: $medium-gray;
+      font-size: 11px;
+    }
+  }
+}

@@ -83,15 +83,72 @@
   }
 }
 
-.track-detail-content-container {
-  width: 1240px;
+.track-content-container {
+  @extend .main-content-container;
+
   min-height: 500px;
-  position: absolute;
   top: 426px;
+  padding-top: 20px;
+  padding-left: 33px;
   background-color: $white;
+
+
+  border: 1px solid black;
+}
+
+.content-main {
+  position: relative;
+  height: 100%;
+
+  .artist-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 120px;
+    height: 150px;
+
+    .artist-image {
+      top: 0;
+      left: 0;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+    }
+
+    .artist-link-name {
+      padding-top: 10px;
+      color: $dark-gray;
+      font-size: 14px;
+    }
+
+  }
 
 
   .artists-buttons-container {
     border: 1px solid black;
   }
+
+  .track-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 145px;
+    top: 20px;
+    width: 670px;
+
+
+    .track-description {
+      font-size: 14px;
+      line-height: 1.4;
+      display: block;
+      width: 670px;
+      white-space: pre-wrap;
+    }
+  }
+}
+
+.edit-track {
+  position: absolute;
+  top: 0px;
 }

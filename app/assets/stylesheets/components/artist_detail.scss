@@ -1,3 +1,6 @@
+@import '../base/layout.scss';
+
+
 .artist-hero-container {
   display: flex;
   position: relative;
@@ -28,7 +31,8 @@
   }
 }
 
-.artist-detail-content-container {
+// .artist-detail-content-container {
+.main-content-container {
   width: 1240px;
   min-height: 973px;
   position: absolute;
@@ -55,18 +59,6 @@
 .artist-buttons {
     margin-top: 15px;
     padding-bottom: 5px;
-}
-
-.artist-sidebar {
-  position: absolute;
-  width: 337px;
-  font-size: 14px;
-  right: 0px;
-  top: 25px;
-  margin: 50px 10px 0;
-
-  height: 100%;
-  border-left: 1px solid $off-white;
 }
 
 .artist-stats {
@@ -105,4 +97,9 @@
   position: absolute;
   top: 60px;
   left: 20px;
+}
+
+.artist-content-container {
+  @extend .main-content-container;
+  top: 306px;
 }

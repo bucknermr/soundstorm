@@ -1,0 +1,32 @@
+@import '../base/layout.scss';
+@import '../base/colors.scss';
+
+.comment-form {
+  width: 817px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $off-white;
+  margin-bottom: 20px;
+  img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .comment-input {
+    width: 80%;
+    height: 80%;
+    background-color: $white;
+    font-size: 14px;
+    height: 27px;
+    width: 765px;
+    margin: 0 5px;
+    border-radius: 4px;
+  }
+
+  .comment-submit {
+    display: none;
+  }
+
+}

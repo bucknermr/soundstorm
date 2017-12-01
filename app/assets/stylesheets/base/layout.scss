@@ -123,43 +123,27 @@ body {
   }
 }
 
+.sidebar-right {
+  position: absolute;
+  width: 337px;
+  font-size: 14px;
+  right: 0px;
+  top: 25px;
+  margin: 50px 10px 0;
 
+  height: 100%;
+  border-left: 1px solid $off-white;
+}
 
+.main-content-container {
+  width: 1240px;
+  min-height: 973px;
+  position: absolute;
+  background-color: $white;
+}
 
-// .play-button {
-//   display: flex;
-//   position: relative;
-//   top: 30px;
-//   left: 20px;
-//   background-color: $orange-2;
-//   width: 60px;
-//   height: 60px;
-//   border-radius: 50%;
-//   cursor: pointer;
-//   transition: background-color .2s;
-//   &:hover {
-//     background-color: $dark-orange;
-//   }
-//   &:after {
-//     content: '';
-//     display: block;
-//     position: absolute;
-//     top: 13px;
-//     left: 20px;
-//     background-image: url("https://a-v2.sndcdn.com/assets/images/buttons/hero/play-69601b9.svg");
-//     background-repeat: no-repeat;
-//     background-size: 40% 60%;
-//     width: 100%;
-//     height: 100%;
-//   }
-// }
-//
-// .pause-button {
-//   @extend .play-button;
-//   &:after {
-//     background-image: url("https://a-v2.sndcdn.com/assets/images/buttons/hero/pause-1f3f227.svg");
-//     top: 14px;
-//     left: 18px;
-//     background-size: 42% 56%;
-//   }
-// }
+.profile-icon-round-small {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

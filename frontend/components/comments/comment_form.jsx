@@ -8,6 +8,7 @@ class CommentForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   handleChange(e) {
@@ -22,7 +23,9 @@ class CommentForm extends React.Component {
 
   render() {
     return (
-      <form on >
+      <form
+        className="comment-form"
+        onSubmit={this.handleSubmit}>
         <img
           className="artist-icon"
           src={this.props.currentArtist.imageUrl}
@@ -30,11 +33,11 @@ class CommentForm extends React.Component {
         <input
           className="comment-input"
           type="text"
-          placehodler="Write a comment"
+          placeholder="Write a comment"
           value={this.state.body}
           onChange={this.handleChange}
         />
-        <input type="submit" style="display: none"/>
+        <input className="comment-submit" type="submit"/>
       </form>
     );
   }
