@@ -58,7 +58,7 @@ class ArtistDetail extends React.Component {
         </div>
       );
     } else {
-      // TODO: spinner ???
+      // TODO: spinner while loading
       return ( <div></div> );
     }
 

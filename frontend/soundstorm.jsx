@@ -3,10 +3,6 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-// TODO: FOR TESTING
-import { requestTrack } from './actions/track_actions';
-// TESTING END
-
 document.addEventListener('DOMContentLoaded', () => {
   const rootEl = document.getElementById('root');
 
@@ -21,10 +17,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   ReactDOM.render(<Root store={store} />, rootEl);
-
-
-  // TODO: FOR TESTING
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  // TESTING END
 });

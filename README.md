@@ -16,28 +16,3 @@ Artists can create accounts, upload and edit songs, and comment on the songs of 
 The tracks are played back on a single audio player for continuous playback while browsing the site. One of the biggest challenges in this project was getting the audio player synced up to the corresponding waveforms as they appear and disappear.
 
 I accomplished this by creating an audio reducer, which held reference to the song that is currently playing as well as it's position. While the track is playing, the player dispatches actions to update the position of the waveform. In addition, the waveform components have a listener which sends it's new position if the user chooses to seek using the waveform. The result is that the song that is currently playing stays in lock step throughout the site with any corresponding buttons or waveforms.
-
-
-
-<!-- This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ... -->

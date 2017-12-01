@@ -17,7 +17,7 @@ class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (!this.props.currentUser) {
+    if (!this.props.currentArtist) {
       this.props.signInForm("Please sign in to comment!");
     } else {
       if (this.state.body) {
