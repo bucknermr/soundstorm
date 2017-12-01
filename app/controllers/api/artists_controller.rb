@@ -3,7 +3,7 @@ class Api::ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.includes(:tracks).find_by(id: params[:id])
+    @artist = Artist.includes(tracks: [:comments]).find_by(id: params[:id])
     if @artist
       render :show
     else
