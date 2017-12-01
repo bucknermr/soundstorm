@@ -158,3 +158,32 @@
     border-color: #f50;
   }
 }
+
+.empty-comments {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: center;
+  align-items: flex-start;
+  width: 669px;
+  height: 282px;
+  margin-top: 30px;
+  
+  img {
+    width: 200px;
+    height: 200px;
+  }
+
+  h3, h4 {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  h4 {
+    font-size: 16px;
+    color: $medium-gray;
+  }
+}

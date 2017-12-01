@@ -38,7 +38,6 @@ class CommentForm extends React.Component {
           type="text"
           placeholder="Write a comment"
           value={this.state.body}
-          // maxLength={47}
           onChange={this.handleChange}
         />
         <input className="comment-submit" type="submit"/>

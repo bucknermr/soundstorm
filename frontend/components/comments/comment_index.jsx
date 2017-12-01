@@ -5,7 +5,11 @@ const CommentIndex = (props) => {
   const { comments, artists, trackArtistId, currentArtistId } = props;
   if (comments.length === 0) {
     return (
-      <div>Something here</div>
+      <div className="empty-comments">
+        <img src="https://a-v2.sndcdn.com/assets/images/empty-states/comments-1267be6.png"/>
+        <h3>Seems a little quiet over here</h3>
+        <h4>Be the first to comment on this track</h4>
+      </div>
     );
   }
 
