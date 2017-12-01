@@ -16,4 +16,9 @@ Rails.application.routes.draw do
 
     resources :comments, only: [:destroy]
   end
+
+  match 'api/tracks/:id/play',
+    to: 'api/tracks#play',
+    via: [:patch],
+    defaults: { format: :json }
 end

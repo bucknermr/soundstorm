@@ -3,7 +3,6 @@ import { play, pause } from '../../actions/audio_actions.js';
 import PlayPause from './play_pause';
 
 const mapStateToProps = ({ ui }) => ({
-  paused: ui.audio.paused,
   playingId: ui.audio.trackId
 });
 

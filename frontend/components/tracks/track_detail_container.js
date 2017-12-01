@@ -17,8 +17,6 @@ const mapStateToProps = ({ entities, ui }, { match }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   requestTrack: trackId => dispatch(requestTrack(trackId)),
-  pause: track => dispatch(pause(track)),
-  play: track => dispatch(play(track)),
   trackEditForm: track => dispatch(showModal('track-edit', track))
 });
 

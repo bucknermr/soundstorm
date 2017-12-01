@@ -33,6 +33,12 @@ class Api::TracksController < ApplicationController
     end
   end
 
+  def play
+    @track = Track.find(params[:id])
+    @track.play_count += 1
+    render :track
+  end
+
   def destroy
   end
 

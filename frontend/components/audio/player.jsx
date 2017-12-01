@@ -12,16 +12,11 @@ class Player extends React.Component {
     };
 
     this.updateWaveformPosition = this.updateWaveformPosition.bind(this);
-    this.play = this.play.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   updateWaveformPosition(pos) {
     this.props.seekWaveform(pos, this.state.track.id);
-  }
-
-  play() {
-    this.props.play(this.state.track);
   }
 
 
@@ -55,7 +50,7 @@ class Player extends React.Component {
     const { audioEl } = this.rap;
     if (paused && !audioEl.paused) {
       audioEl.pause();
-    } else if (audioEl.paused) {
+    } else if (!paused && audioEl.paused) {
       document.getElementById('player-container').classList.remove('hide');
       audioEl.play();
     }
@@ -80,10 +75,9 @@ class Player extends React.Component {
         className="hide">
         <ReactAudioPlayer
           src={track.audioUrl}
-          ref={(element) => { this.rap = element; }}
+          ref={element => { this.rap = element; }}
           autoPlay
           controls
-          onPlay={this.play}
           listenInterval={100}
           onListen={this.updateWaveformPosition}
           onSeeked={ e => (

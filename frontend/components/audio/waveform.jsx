@@ -4,6 +4,8 @@ import WaveSurfer from 'wavesurfer.js';
 class Waveform extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = { wavesurfer: '' };
   }
 
   componentDidMount() {
@@ -45,6 +47,10 @@ class Waveform extends React.Component {
       this.props.seekTrack(float * wavesurfer.getDuration(), trackId);
     });
 
+  }
+
+  componentWillUnmount() {
+    this.state.wavesurfer.unAll();
   }
 
   render() {

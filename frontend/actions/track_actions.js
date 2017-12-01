@@ -78,6 +78,11 @@ export const updateTrack = (formData, trackId) => dispatch => (
     )
 );
 
+export const incrementPlayCount = trackId => dispatch => (
+  TracksApiUtil.incrementPlayCount(trackId)
+    .then(updatedTrack => dispatch(receiveTrack(updatedTrack)))
+);
+
 export const deleteTrack = trackId => dispatch => (
   TracksApiUtil.deleteTrack(trackId)
     .then(

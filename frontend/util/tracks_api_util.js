@@ -35,6 +35,13 @@ export const updateTrack = (formData, trackId) => (
   })
 );
 
+export const incrementPlayCount = (trackId) => (
+  $.ajax({
+    url: `api/tracks/${trackId}/play`,
+    method: 'PATCH'
+  })
+);
+
 export const deleteTrack = (trackId) => (
   $.ajax({
     url: `api/tracks/${trackId}`,

@@ -18,7 +18,7 @@ class TrackDetail extends React.Component {
   }
 
   render () {
-    const { track, play, artists, trackEditForm } = this.props;
+    const { track, artists, trackEditForm } = this.props;
 
     if (!track) { return null; }
 
