@@ -10,7 +10,6 @@ export const fetchTracksByPlayCount = (limit) => (
   $.ajax({
     url: 'api/tracks/',
     method: 'GET'
-    // data: { track: { limit } }
   })
 );
 

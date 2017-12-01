@@ -5,7 +5,7 @@ const _nullAudio = {
   track: null,
   trackId: null,
   position: 0,
-  paused: false
+  paused: true
 };
 
 const audioReducer = (state = _nullAudio, action) => {

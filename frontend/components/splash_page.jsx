@@ -6,7 +6,7 @@ class SplashPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="main-content-container splash-index-item">
         <HeroContainer />
         <SplashIndexContainer />
       </div>

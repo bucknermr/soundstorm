@@ -1,5 +1,5 @@
 import React from 'react';
-import SplashIndexItem from './splash_index_item';
+import SplashIndexItemContainer from './splash_index_item_container';
 
 class SplashIndex extends React.Component {
 
@@ -13,7 +13,7 @@ class SplashIndex extends React.Component {
       <div className="splash-index">
         {
           tracks.map(track => (
-            <SplashIndexItem
+            <SplashIndexItemContainer
               key={track.id}
               track={track}
               artist={artists[track.artistId]}

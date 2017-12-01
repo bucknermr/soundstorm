@@ -12,7 +12,7 @@ import ArtistDetailContainer from './artists/artist_detail_container';
 const App = () => {
   return (
     <div>
-      <header>
+      <header id="header">
         <Switch>
           <AuthRoute exact path='/' component={SplashPage} />
           <NavbarContainer />
