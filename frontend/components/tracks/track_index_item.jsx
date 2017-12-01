@@ -32,16 +32,6 @@ const TrackIndexItem = ({ track, artist }) => {
         />
 
         <InlineTrackStats track={track} detail={false} />
-
-        {/* <div className="track-data">
-          {
-            track.commentCount ? (
-              <Link to={`/tracks/${track.id}`} >
-                <i className="fa fa-comment" aria-hidden="true"></i>{track.commentCount}
-              </Link>
-            ) : null
-          }
-        </div> */}
       </div>
     </div>
   );
