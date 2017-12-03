@@ -6,9 +6,7 @@ export const tracksArray = state => {
 };
 
 export const commentsArray = state => {
-  const comments = values(state.entities.comments);
-  comments.forEach(comment => {
-    comment.createdAt = Date.parse(comment.createdAt);
+  return values(state.entities.comments).map(comment => {
+    return merge({}, comment, { createdAt: Date.parse(comment.createdAt) });
   });
-  return comments;
 };
