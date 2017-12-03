@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { singleArtist, tracksArray } from '../../reducers/selectors';
 import { requestArtist } from '../../actions/artist_actions';
 import { showModal } from '../../actions/modal_actions';
 import ArtistDetail from './artist_detail';
@@ -14,8 +13,7 @@ const mapStateToProps = (state, { match }) => {
 
   return {
     ownPage,
-    artist,
-    tracks: tracksArray(state)
+    artist
   };
 };
 

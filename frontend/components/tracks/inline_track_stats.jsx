@@ -14,7 +14,7 @@ const InlineTrackStats = ({ track, detail }) => {
       {
         track.commentCount && !detail ? (
           <Link to={`/tracks/${track.id}`}>
-            <i class="fa fa-comment" aria-hidden="true"></i>{track.commentCount}
+            <i className="fa fa-comment" aria-hidden="true"></i>{track.commentCount}
           </Link>
         ) : null
       }

@@ -3,7 +3,7 @@ import { tracksArray } from '../../reducers/selectors';
 import TrackIndex from './track_index';
 import { requestTracksByArtist } from '../../actions/track_actions';
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, { artistId }) => ({
   tracks: tracksArray(state),
   artists: state.entities.artists
 });

@@ -9,9 +9,10 @@ const artistsReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_ARTISTS:
-    case RECEIVE_TRACK_DETAIL:
     case RECEIVE_TRACKS:
       return action.artists;
+    case RECEIVE_TRACK_DETAIL:
+      return merge({}, state, action.artists);
     case RECEIVE_ARTIST:
     case UPDATE_ARTIST:
       newState = merge({}, state);
