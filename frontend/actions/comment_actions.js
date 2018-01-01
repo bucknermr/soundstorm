@@ -7,12 +7,13 @@ export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 // Action creators
 
-export const receiveComment = comment => ({
+export const receiveComment = ({ comment, artist }) => ({
   type: RECEIVE_COMMENT,
-  comment
+  comment,
+  artist
 });
 
-export const removeComment = comment => ({
+export const removeComment = ({ comment }) => ({
   type: REMOVE_COMMENT,
   commentId: comment.id
 });
@@ -21,10 +22,10 @@ export const removeComment = comment => ({
 
 export const createComment = (comment, trackId) => dispatch => (
   CommentsApiUtil.createComment(comment, trackId)
-    .then(newComment => dispatch(receiveComment(newComment)))
+    .then(payload => dispatch(receiveComment(payload)))
 );
 
 export const deleteComment = (commentId) => dispatch => (
   CommentsApiUtil.deleteComment(commentId)
-    .then(comment => dispatch(removeComment(comment)))
+    .then(payload => dispatch(removeComment(payload)))
 );

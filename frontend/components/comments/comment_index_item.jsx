@@ -7,6 +7,8 @@ const CommentIndexItem = (props) => {
 
   const { comment, artist, background, ownComment } = props;
 
+  if (!artist || !comment) { return null; }
+
   return (
     <div className={`comment-index-item ${background}`}>
       <Link to={`/artists/${artist.id}`}>
