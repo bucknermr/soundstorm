@@ -65,22 +65,14 @@ export const createTrack = formData => dispatch => (
     )
 );
 
-export const requestTracksByArtist = artistId => dispatch => {
-  dispatch(trackIndexLoading())
-  TracksApiUtil.fetchTracksByArtist(artistId)
+export const requestTracksByPlayCount = limit => dispatch => {
+  dispatch(trackIndexLoading());
+  return TracksApiUtil.fetchTracksByPlayCount(limit)
   .then(
     tracks => dispatch(receiveTracks(tracks)),
     errors => dispatch(receiveErrors(errors.responseJSON))
-  )
-};
-
-export const requestTracksByPlayCount = limit => dispatch => (
-  TracksApiUtil.fetchTracksByPlayCount(limit)
-    .then(
-      tracks => dispatch(receiveTracks(tracks)),
-      errors => dispatch(receiveErrors(errors.responseJSON))
-    )
-);
+  );
+}
 
 export const requestTrack = trackId => dispatch => {
   dispatch(trackLoading());
