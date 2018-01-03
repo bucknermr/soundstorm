@@ -3,19 +3,13 @@ import { tracksArray } from '../../reducers/selectors';
 import TrackIndex from './track_index';
 import { requestTracksByArtist } from '../../actions/track_actions';
 
-const mapStateToProps = (state, { artistId }) => ({
+const mapStateToProps = (state) => ({
   tracks: tracksArray(state),
-  artists: state.entities.artists
+  artists: state.entities.artists,
+  loading: state.ui.loading.trackIndex
 });
-
-const mapDispatchToProps = (dispatch) => {
-
-  const getTracks = (artistId) => dispatch(requestTracksByArtist(artistId));
-
-  return { getTracks };
-};
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(TrackIndex);

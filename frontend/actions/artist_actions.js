@@ -7,6 +7,8 @@ export const RECEIVE_ARTISTS = 'RECEIVE_ARTISTS';
 export const RECEIVE_ARTIST_ERRORS = 'RECEIVE_ARTIST_ERRORS';
 export const UPDATE_ARTIST = 'UPDATE_ARTIST';
 
+export const ARTIST_LOADING = 'ARTIST_LOADING';
+
 // Action Creators
 
 export const receiveArtist = ({ artist, tracks }) => ({
@@ -30,16 +32,21 @@ export const receiveArtistErrors = errors => ({
   errors
 });
 
+export const artistLoading = () => ({
+  type: ARTIST_LOADING
+});
+
 
 // Thunk Action Creators
 
-export const requestArtist = artistId => dispatch => (
-  ArtistsApiUtil.fetchArtist(artistId)
-    .then(
-      payload => dispatch(receiveArtist(payload)),
-      errors => dispatch(receiveArtistErrors(errors))
-    )
-);
+export const requestArtist = artistId => dispatch => {
+  dispatch(artistLoading());
+  return ArtistsApiUtil.fetchArtist(artistId)
+  .then(
+    payload => dispatch(receiveArtist(payload)),
+    errors => dispatch(receiveArtistErrors(errors))
+  );
+};
 
 export const updateArtist = (formData, artistId) => dispatch => (
   ArtistsApiUtil.updateArtist(formData, artistId)

@@ -25,7 +25,7 @@ class TrackDetail extends React.Component {
       this.props.requestTrack(match.params.trackId);
       this.setState({ loading: true })
     } else if (loading !== this.state.loading) {
-      this.setState({ loading })
+      this.setState({ loading });
     }
   }
 
