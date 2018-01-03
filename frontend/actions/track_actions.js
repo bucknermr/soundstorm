@@ -76,21 +76,13 @@ export const requestTracksByPlayCount = limit => dispatch => (
 );
 
 export const requestTrack = trackId => dispatch => {
-  dispatch(trackLoading)
+  dispatch(trackLoading());
   return TracksApiUtil.fetchTrack(trackId)
     .then(
       payload => dispatch(receiveTrackDetail(payload)),
       errors => dispatch(receiveErrors(errors.responseJSON))
     )
 };
-
-// export const requestTrack = trackId => dispatch => (
-//   TracksApiUtil.fetchTrack(trackId)
-//     .then(
-//       payload => dispatch(receiveTrackDetail(payload)),
-//       errors => dispatch(receiveErrors(errors.responseJSON))
-//     )
-// );
 
 export const updateTrack = (formData, trackId) => dispatch => (
   TracksApiUtil.updateTrack(formData, trackId)
