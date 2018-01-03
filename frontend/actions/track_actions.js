@@ -7,6 +7,7 @@ export const RECEIVE_TRACKS = 'RECEIVE_TRACKS';
 export const RECEIVE_TRACK_DETAIL = 'RECEIVE_TRACK_DETAIL';
 export const REMOVE_TRACK = 'DELETE_TRACK';
 
+export const TRACK_LOADING = 'TRACK_LOADING';
 
 export const RECEIVE_TRACK_ERRORS = 'RECEIVE_TRACK_ERRORS';
 export const CLEAR_TRACK_ERRORS =  'CLEAR_TRACK_ERRORS';
@@ -45,6 +46,10 @@ export const clearErrors = () => ({
   type: CLEAR_TRACK_ERRORS
 });
 
+export const trackLoading = () => ({
+  type: TRACK_LOADING
+});
+
 // Thunk Action Creators
 
 export const createTrack = formData => dispatch => (
@@ -70,13 +75,22 @@ export const requestTracksByPlayCount = limit => dispatch => (
     )
 );
 
-export const requestTrack = trackId => dispatch => (
-  TracksApiUtil.fetchTrack(trackId)
+export const requestTrack = trackId => dispatch => {
+  dispatch(trackLoading)
+  return TracksApiUtil.fetchTrack(trackId)
     .then(
       payload => dispatch(receiveTrackDetail(payload)),
       errors => dispatch(receiveErrors(errors.responseJSON))
     )
-);
+};
+
+// export const requestTrack = trackId => dispatch => (
+//   TracksApiUtil.fetchTrack(trackId)
+//     .then(
+//       payload => dispatch(receiveTrackDetail(payload)),
+//       errors => dispatch(receiveErrors(errors.responseJSON))
+//     )
+// );
 
 export const updateTrack = (formData, trackId) => dispatch => (
   TracksApiUtil.updateTrack(formData, trackId)
