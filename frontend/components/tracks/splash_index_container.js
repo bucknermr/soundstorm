@@ -5,7 +5,8 @@ import SplashIndex from './splash_index';
 
 const mapStateToProps = (state) => ({
   artists: state.entities.artists,
-  tracks: tracksArray(state)
+  tracks: tracksArray(state),
+  loading: state.ui.loading.trackIndex
 });
 
 const mapDispatchToProps = dispatch => ({
