@@ -9,7 +9,9 @@ import {
 } from '../actions/track_actions';
 import {
   ARTIST_LOADING,
-  RECEIVE_ARTIST
+  RECEIVE_ARTIST,
+  ARTIST_SAVING,
+  UPDATE_ARTIST
 } from '../actions/artist_actions';
 import merge from 'lodash/merge';
 
@@ -39,9 +41,11 @@ const loadingReducer = (state = defaultState, action) => {
     case RECEIVE_ARTIST:
       return merge({}, state, { trackIndex: false, artistDetail: false });
     case TRACK_SAVING:
+    case ARTIST_SAVING:
       return merge({}, state, { saving: true });
     case RECEIVE_TRACK:
     case RECEIVE_TRACK_ERRORS:
+    case UPDATE_ARTIST:
       return merge({}, state, { saving: false });
     default:
       return state;
