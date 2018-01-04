@@ -3,9 +3,10 @@ import { updateArtist } from '../../actions/artist_actions';
 import { hideModal } from '../../actions/modal_actions';
 import ArtistEdit from './artist_edit';
 
-const mapStateToProps = ({ session, ui }) => ({
+const mapStateToProps = ({ session, ui, errors }) => ({
   currentArtist: session.currentArtist,
-  saving: ui.loading.saving
+  saving: ui.loading.saving,
+  errors: errors.artist
 });
 
 const mapDispatchToProps = dispatch => ({

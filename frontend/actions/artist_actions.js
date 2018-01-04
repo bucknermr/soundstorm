@@ -55,5 +55,7 @@ export const requestArtist = artistId => dispatch => {
 export const updateArtist = (formData, artistId) => dispatch => {
   dispatch(artistSaving());
   return ArtistsApiUtil.updateArtist(formData, artistId)
-    .then(artist => dispatch(receiveArtistUpdate(artist)));
+    .then(
+      artist => dispatch(receiveArtistUpdate(artist)),
+      errors => dispatch(receiveArtistErrors(errors.responseJSON)));
 };

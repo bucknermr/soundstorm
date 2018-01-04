@@ -1,5 +1,6 @@
 import React from 'react';
 import UpdateImage from '../buttons/update_image';
+import Errors from './errors';
 
 class ArtistEdit extends React.Component {
   constructor(props) {
@@ -92,6 +93,8 @@ class ArtistEdit extends React.Component {
             <button type="submit" className="orange-button">Save</button>
           </div>
         </div>
+
+        <Errors className="track-errors" errors={this.props.errors} />
 
         {
           // TODO: add error rendering
