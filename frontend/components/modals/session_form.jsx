@@ -52,7 +52,9 @@ class SessionForm extends React.Component {
       <form
         className="session-form animated slideInDown"
         onSubmit={this.handleSubmit} >
-        <h3 className="modal-message">{message}</h3>
+        {message ? (
+          <h3 className="modal-message">{message}</h3>
+        ) : null}
         <input
           className="input-text-large"
           type='text'

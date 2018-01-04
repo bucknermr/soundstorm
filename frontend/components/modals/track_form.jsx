@@ -27,6 +27,10 @@ class TrackForm extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
 
   handleChange(type) {
     return (e) => {
@@ -136,6 +140,9 @@ class TrackForm extends React.Component {
             <p><span>*</span>Required fields</p>
             <div>
               <a onClick={this.props.hideModal}>Cancel</a>
+              {this.props.saving ? (
+                <i className="fa fa-spinner fa-pulse fa-3x fa-fw loading"></i>
+              ) : null}
               <button type="submit" className="orange-button">
                 { formType === 'track-upload' ? "Save" : "Save changes" }
               </button>
