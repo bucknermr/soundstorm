@@ -27,6 +27,10 @@ class TrackForm extends React.Component {
       this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
 
   handleChange(type) {
     return (e) => {

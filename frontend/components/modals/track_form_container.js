@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createTrack, updateTrack } from '../../actions/track_actions';
+import { createTrack, updateTrack, clearErrors } from '../../actions/track_actions';
 import { hideModal } from '../../actions/modal_actions';
 import TrackForm from './track_form';
 
@@ -13,7 +13,8 @@ const mapDispatchToProps = (dispatch, { formType }) => {
   return {
     createTrack: track => dispatch(createTrack(track)),
     updateTrack: (formData, trackId) => dispatch(updateTrack(formData, trackId)),
-    hideModal: () => dispatch(hideModal())
+    hideModal: () => dispatch(hideModal()),
+    clearErrors: () => dispatch(clearErrors())
   };
 };
 
