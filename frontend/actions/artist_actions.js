@@ -5,6 +5,7 @@ import * as ArtistsApiUtil from '../util/artists_api_util';
 export const RECEIVE_ARTIST = 'RECEIVE_ARTIST';
 export const RECEIVE_ARTISTS = 'RECEIVE_ARTISTS';
 export const RECEIVE_ARTIST_ERRORS = 'RECEIVE_ARTIST_ERRORS';
+export const CLEAR_ARTIST_ERRORS = 'CLEAR_ARTIST_ERRORS';
 export const UPDATE_ARTIST = 'UPDATE_ARTIST';
 
 export const ARTIST_LOADING = 'ARTIST_LOADING';
@@ -32,6 +33,10 @@ export const receiveArtistErrors = errors => ({
   type: RECEIVE_ARTIST_ERRORS,
   errors
 });
+
+export const clearErrors = () => ({
+  type: CLEAR_ARTIST_ERRORS
+})
 
 export const artistLoading = () => ({
   type: ARTIST_LOADING

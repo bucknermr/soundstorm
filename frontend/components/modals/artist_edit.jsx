@@ -44,6 +44,10 @@ class ArtistEdit extends React.Component {
       .then(() => this.props.hideModal());
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
 
 
   render () {
@@ -95,10 +99,6 @@ class ArtistEdit extends React.Component {
         </div>
 
         <Errors className="track-errors" errors={this.props.errors} />
-
-        {
-          // TODO: add error rendering
-        }
 
       </form>
     );
