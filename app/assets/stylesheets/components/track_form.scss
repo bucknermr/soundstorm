@@ -164,4 +164,15 @@
       padding: 5px 10px;
     }
   }
+
+  div > a {
+    margin-right: 33px;
+  }
+
+  .loading {
+    font-size: 20px;
+    position: absolute;
+    right: 56px;
+    top: 3px;
+  }
 }

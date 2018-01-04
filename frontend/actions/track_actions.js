@@ -9,6 +9,7 @@ export const REMOVE_TRACK = 'DELETE_TRACK';
 
 export const TRACK_LOADING = 'TRACK_LOADING';
 export const TRACK_INDEX_LOADING = 'TRACK_INDEX_LOADING';
+export const TRACK_SAVING = 'TRACK_SAVING';
 
 export const RECEIVE_TRACK_ERRORS = 'RECEIVE_TRACK_ERRORS';
 export const CLEAR_TRACK_ERRORS =  'CLEAR_TRACK_ERRORS';
@@ -55,15 +56,20 @@ export const trackIndexLoading = () => ({
   type: TRACK_INDEX_LOADING
 });
 
+export const trackSaving = () => ({
+  type: TRACK_SAVING
+})
+
 // Thunk Action Creators
 
-export const createTrack = formData => dispatch => (
-  TracksApiUtil.createTrack(formData)
-    .then(
-      track => dispatch(receiveTrack(track)),
-      errors => dispatch(receiveErrors(errors.responseJSON))
-    )
-);
+export const createTrack = formData => dispatch => {
+  dispatch(trackSaving());
+  return TracksApiUtil.createTrack(formData)
+  .then(
+    track => dispatch(receiveTrack(track)),
+    errors => dispatch(receiveErrors(errors.responseJSON))
+  );
+};
 
 export const requestTracksByPlayCount = limit => dispatch => {
   dispatch(trackIndexLoading());
@@ -83,13 +89,14 @@ export const requestTrack = trackId => dispatch => {
     )
 };
 
-export const updateTrack = (formData, trackId) => dispatch => (
-  TracksApiUtil.updateTrack(formData, trackId)
-    .then(
-      updatedTrack => dispatch(receiveTrack(updatedTrack)),
-      errors => dispatch(receiveErrors(errors.responseJSON))
-    )
-);
+export const updateTrack = (formData, trackId) => dispatch => {
+  dispatch(trackSaving());
+  return TracksApiUtil.updateTrack(formData, trackId)
+  .then(
+    updatedTrack => dispatch(receiveTrack(updatedTrack)),
+    errors => dispatch(receiveErrors(errors.responseJSON))
+  );
+};
 
 export const incrementPlayCount = trackId => dispatch => (
   TracksApiUtil.incrementPlayCount(trackId)

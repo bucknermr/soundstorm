@@ -3,9 +3,10 @@ import { createTrack, updateTrack } from '../../actions/track_actions';
 import { hideModal } from '../../actions/modal_actions';
 import TrackForm from './track_form';
 
-const mapStateToProps = ({ errors }, { formType }) => ({
+const mapStateToProps = ({ errors, ui }, { formType }) => ({
   errors: errors.track,
-  formType
+  formType,
+  saving: ui.loading.saving
 });
 
 const mapDispatchToProps = (dispatch, { formType }) => {

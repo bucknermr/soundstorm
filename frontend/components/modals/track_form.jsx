@@ -136,6 +136,9 @@ class TrackForm extends React.Component {
             <p><span>*</span>Required fields</p>
             <div>
               <a onClick={this.props.hideModal}>Cancel</a>
+              {this.props.saving ? (
+                <i className="fa fa-spinner fa-pulse fa-3x fa-fw loading"></i>
+              ) : null}
               <button type="submit" className="orange-button">
                 { formType === 'track-upload' ? "Save" : "Save changes" }
               </button>
