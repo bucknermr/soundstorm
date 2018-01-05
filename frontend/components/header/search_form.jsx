@@ -7,15 +7,23 @@ class SearchForm extends React.Component {
     this.state = { term: '' };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     this.setState({ term: e.target.value });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    if (this.state.term) {
+      this.props.searchTracks(this.state.term);
+    }
+  }
+
   render() {
     return (
-      <form className="nav-search-form" >
+      <form className="nav-search-form" onSubmit={this.handleSubmit}>
         <input
           type="search"
           className="nav-search-input"

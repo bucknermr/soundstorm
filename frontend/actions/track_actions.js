@@ -75,7 +75,7 @@ export const requestTracksByPlayCount = limit => dispatch => {
   dispatch(trackIndexLoading());
   return TracksApiUtil.fetchTracksByPlayCount(limit)
   .then(
-    tracks => dispatch(receiveTracks(tracks)),
+    payload => dispatch(receiveTracks(payload)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   );
 }
@@ -110,3 +110,9 @@ export const deleteTrack = trackId => dispatch => (
       errors => dispatch(receiveErrors(errors.responseJSON))
     )
 );
+
+export const searchTracks = term => dispatch => {
+  dispatch(trackIndexLoading());
+  TracksApiUtil.searchTracks(term)
+    .then(payload => dispatch(receiveTracks(payload)));
+};

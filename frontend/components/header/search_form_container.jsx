@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { searchTracks } from '../../actions/track_actions';
 import SearchForm from './search_form';
 
 const mapStateToProps = ({ session }) => ({
@@ -6,7 +7,7 @@ const mapStateToProps = ({ session }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-
+  searchTracks: term => dispatch(searchTracks(term))
 });
 
 export default connect(

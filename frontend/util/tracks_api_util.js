@@ -1,11 +1,4 @@
 
-export const fetchTracksByArtist = (artistId) => (
-  $.ajax({
-    url: `api/artists/${artistId}/tracks`,
-    method: 'GET',
-  })
-);
-
 export const fetchTracksByPlayCount = (limit) => (
   $.ajax({
     url: 'api/tracks/',
@@ -55,3 +48,11 @@ export const deleteTrack = (trackId) => (
     method: 'DELETE'
   })
 );
+
+export const searchTracks = term => (
+  $.ajax({
+    url: 'api/tracks/search',
+    method: 'POST',
+    data: { search: { term } }
+  })
+)
