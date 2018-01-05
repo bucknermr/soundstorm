@@ -5,7 +5,6 @@ class Api::TracksController < ApplicationController
       .order(play_count: :desc)
       .limit(12)
     render :index
-
   end
 
   def show
@@ -50,7 +49,6 @@ class Api::TracksController < ApplicationController
   end
 
   def search
-    p params
     @tracks = Track.search(search_params[:term])
     render :index
   end

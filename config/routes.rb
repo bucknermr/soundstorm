@@ -16,11 +16,8 @@ Rails.application.routes.draw do
 
     post 'tracks/search', to: 'tracks#search'
 
+    patch 'tracks/:id/play', to: 'tracks#play'
+
     resources :comments, only: [:destroy]
   end
-
-  match 'api/tracks/:id/play',
-    to: 'api/tracks#play',
-    via: [:patch],
-    defaults: { format: :json }
 end
