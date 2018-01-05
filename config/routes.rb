@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       resources :comments, only: [:create]
     end
 
+    post 'tracks/search', to: 'tracks#search'
+
     resources :comments, only: [:destroy]
   end
 
