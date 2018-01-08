@@ -7,7 +7,7 @@ class Search extends React.Component {
     super(props);
 
     const { term } = queryString.parse(this.props.location.search);
-    this.state = { type: 'tracks', term }
+    this.state = { type: 'tracks', term };
   }
 
   componentDidMount() {
@@ -17,8 +17,8 @@ class Search extends React.Component {
   componentWillReceiveProps(nextProps) {
     const { term } = queryString.parse(nextProps.location.search);
     if (term !== this.state.term) {
-      this.props.searchTracks(term)
-      this.setState({ term })
+      this.props.searchTracks(term);
+      this.setState({ term });
     }
   }
 

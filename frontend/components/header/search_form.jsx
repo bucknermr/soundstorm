@@ -20,13 +20,13 @@ class SearchForm extends React.Component {
     e.preventDefault();
     if (this.state.term) {
       this.redirect();
-      this.setState({ term: '' })
+      this.setState({ term: '' });
     }
   }
 
   redirect() {
     const query = queryString.stringify({ term: this.state.term});
-    this.props.history.push(`/search?${query}`)
+    this.props.history.push(`/search?${query}`);
   }
 
   render() {
