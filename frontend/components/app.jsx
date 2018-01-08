@@ -9,6 +9,7 @@ import TrackDetailContainer from './tracks/track_detail_container';
 import PlayerContainer from './audio/player_container';
 import ArtistDetailContainer from './artists/artist_detail_container';
 import SplashIndexContainer from './tracks/splash_index_container';
+import SearchContainer from './search/search_container';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route exact path='/stream/' component={SplashIndexContainer}/>
         <Route exact path='/tracks/:trackId' component={TrackDetailContainer} />
         <Route exact path='/artists/:artistId' component={ArtistDetailContainer} />
+        <Route exact path='/search' component={SearchContainer} />
       </main>
       <footer>
         <PlayerContainer />
