@@ -6,7 +6,7 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { term: '', fireRedirect: false };
+    this.state = { term: '' };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,41 +18,15 @@ class SearchForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // if (this.state.term) {
-    //   // this.setState({ term: '' })
-    //   return(
-    //     <Redirect push
-    //       to={{
-    //         pathname: 'search',
-    //         search: queryString.stringify(this.state)
-    //       }}
-    //     />
-    //   )
-    // }
-
-
     if (this.state.term) {
-      // this.props.searchTracks(this.state.term);
-      this.setState({ fireRedirect: true })
+      this.redirect();
+      this.setState({ term: '' })
     }
   }
 
   redirect() {
-    const search = { term: this.state.term };
-    return (
-      <Redirect push
-        to={{
-          pathname: 'search',
-          search: queryString.stringify(search)
-        }}
-      />
-    )
-  }
-
-  componentDidUpdate() {
-    if (this.state.fireRedirect) {
-      this.setState({ fireRedirect: false, term: '' })
-    }
+    const query = queryString.stringify({ term: this.state.term});
+    this.props.history.push(`/search?${query}`)
   }
 
   render() {
@@ -69,7 +43,6 @@ class SearchForm extends React.Component {
         <button type="submit" className="search-icon">
           <i className="fa fa-search" aria-hidden="true"></i>
         </button>
-        {this.state.fireRedirect ? this.redirect() : null}
       </form>
     )
   }
