@@ -8,6 +8,7 @@ class Search extends React.Component {
 
     const { term } = queryString.parse(this.props.location.search);
     this.state = { type: 'tracks', term };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -22,12 +23,35 @@ class Search extends React.Component {
     }
   }
 
+  handleClick(type) {
+    return (e) => {
+      this.setState({ type })
+    }
+  }
+
   render() {
+    const { term, type } = this.state
     return (
       <div className="search-page">
         <header>
-          <h2>Search results for "{this.state.term}"</h2>
+          <h2>Search results for "{term}"</h2>
         </header>
+        <aside className="search-nav">
+          <ul>
+            <li><button
+              className={type === 'tracks' ? 'selected' : ''}
+              onClick={this.handleClick('tracks')}
+              >
+              <i className="fa fa-soundcloud" aria-hidden="true"></i> Tracks
+            </button></li>
+            <li><button
+              className={type === 'people' ? 'selected' : ''}
+              onClick={this.handleClick('people')}
+              >
+              <i className="fa fa-user" aria-hidden="true"></i> People
+            </button></li>
+          </ul>
+        </aside>
         <TrackIndexContainer />
       </div>
     )
