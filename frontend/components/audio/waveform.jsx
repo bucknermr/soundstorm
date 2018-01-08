@@ -22,14 +22,13 @@ class Waveform extends React.Component {
     wavesurfer.load(audioUrl);
     wavesurfer.on('ready', () => {
       wavesurfer.seekTo(position / wavesurfer.getDuration());
-    });
 
-    wavesurfer.on('seek', float => {
-      this.props.seekTrack(float * wavesurfer.getDuration(), trackId);
+      wavesurfer.on('seek', float => {
+        this.props.seekTrack(float * wavesurfer.getDuration(), trackId);
+      });
     });
 
     this.setState({ wavesurfer: wavesurfer });
-
   }
 
   componentWillReceiveProps({ trackId, audioUrl, position }) {
