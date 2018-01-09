@@ -8,7 +8,7 @@ import { Route, Switch } from 'react-router';
 import TrackDetailContainer from './tracks/track_detail_container';
 import PlayerContainer from './audio/player_container';
 import ArtistDetailContainer from './artists/artist_detail_container';
-import SplashIndexContainer from './tracks/splash_index_container';
+import HomePage from './home_page';
 import SearchContainer from './search/search_container';
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
         <ModalRootContainer />
       </header>
       <main id="main">
-        <Route exact path='/stream/' component={SplashIndexContainer}/>
+        <Route exact path='/stream/' component={HomePage}/>
         <Route exact path='/tracks/:trackId' component={TrackDetailContainer} />
         <Route exact path='/artists/:artistId' component={ArtistDetailContainer} />
         <Route exact path='/search' component={SearchContainer} />
