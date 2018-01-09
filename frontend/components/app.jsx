@@ -1,6 +1,6 @@
 import React from 'react';
 import NavbarContainer from './header/navbar_container';
-import SplashPage from './splash_page';
+import SplashPageContainer from './splash_page_container';
 import ModalRootContainer from './modals/modal_root_container';
 import { AuthRoute } from '../util/route_util';
 import { Route, Switch } from 'react-router';
@@ -16,7 +16,7 @@ const App = () => {
     <div>
       <header id="header">
         <Switch>
-          <AuthRoute exact path='/' component={SplashPage} />
+          <AuthRoute exact path='/' component={SplashPageContainer} />
           <NavbarContainer />
         </Switch>
         <ModalRootContainer />
