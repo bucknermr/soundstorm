@@ -1,0 +1,55 @@
+@import '../base/colors.scss';
+
+.splash-page {
+  text-align: center;
+  .splash-index-header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 24px;
+  }
+}
+
+.splash-search {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 50px;
+
+  .search-icon {
+    font-size: 20px;
+  }
+
+  span {
+    font-size: 16px;
+  }
+
+  .upload-button {
+    margin: 0;
+    display: inline-block;
+    padding: 16px 0;
+    margin-left: 10px;
+    width: 170px;
+    font-size: 16px;
+    border: 1px solid $light-gray;
+    &:hover {
+      border-color: $gray;
+    }
+  }
+
+
+  .nav-search-form {
+    position: relative;
+    left: 0px;
+    width: 600px;
+    height: 50px;
+  }
+
+  .nav-search-input {
+    height: 100%;
+    width: 100%;
+    padding: 0 16px;
+    font-size: 16px;
+  }
+}

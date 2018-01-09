@@ -6,6 +6,7 @@ class Waveform extends React.Component {
     super(props);
 
     this.state = { wavesurfer: '' };
+    this.setOnSeek = this.setOnSeek.bind(this);
   }
 
   componentDidMount() {
@@ -22,14 +23,10 @@ class Waveform extends React.Component {
     wavesurfer.load(audioUrl);
     wavesurfer.on('ready', () => {
       wavesurfer.seekTo(position / wavesurfer.getDuration());
-    });
-
-    wavesurfer.on('seek', float => {
-      this.props.seekTrack(float * wavesurfer.getDuration(), trackId);
+      this.setOnSeek(wavesurfer, trackId);
     });
 
     this.setState({ wavesurfer: wavesurfer });
-
   }
 
   componentWillReceiveProps({ trackId, audioUrl, position }) {
@@ -39,14 +36,18 @@ class Waveform extends React.Component {
       wavesurfer.load(audioUrl);
       wavesurfer.on('ready', () => {
         wavesurfer.seekTo(position / wavesurfer.getDuration());
+        this.setOnSeek(wavesurfer, trackId);
       });
     } else {
       wavesurfer.seekTo(position / wavesurfer.getDuration());
+      this.setOnSeek(wavesurfer, trackId);
     }
+  }
+
+  setOnSeek(wavesurfer, trackId) {
     wavesurfer.on('seek', float => {
       this.props.seekTrack(float * wavesurfer.getDuration(), trackId);
     });
-
   }
 
   componentWillUnmount() {

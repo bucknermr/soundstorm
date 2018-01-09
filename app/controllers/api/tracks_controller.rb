@@ -1,16 +1,10 @@
 class Api::TracksController < ApplicationController
 
   def index
-    # @tracks = Track.where(artist_id: params[:artist_id])
-    # render :index
-
-
     @tracks = Track.includes(:artist)
       .order(play_count: :desc)
       .limit(12)
-      # .limit(params[:track][:limit])
     render :index
-
   end
 
   def show
@@ -54,10 +48,19 @@ class Api::TracksController < ApplicationController
     render :track
   end
 
+  def search
+    @tracks = Track.search(search_params[:term])
+    render :index
+  end
+
   private
 
   def track_params
     params.require(:track).permit(:title, :description, :audio, :image)
+  end
+
+  def search_params
+    params.require(:search).permit(:term)
   end
 
 end

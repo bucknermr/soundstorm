@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Redirect } from 'react-router';
+import SearchFormContainer from './search_form_container';
 
 const NavbarLoggedIn = ({ currentArtist, logout, trackUploadForm }) => {
 
@@ -14,16 +15,7 @@ const NavbarLoggedIn = ({ currentArtist, logout, trackUploadForm }) => {
         <Link to='/stream' className="collection-button navbar-button" >
         Collection
       </Link>
-        <form className="nav-search-form" >
-          <input
-            type="search"
-            className="nav-search-input"
-            placeholder="Search"
-          />
-          <button type="submit" className="search-icon">
-            <i className="fa fa-search" aria-hidden="true"></i>
-          </button>
-        </form>
+        <SearchFormContainer />
         <button
           className="upload-button navbar-button"
           onClick={trackUploadForm}
