@@ -69,8 +69,6 @@
     color: #666;
   }
   left: 320px;
-  // width: 500px;
-
   min-width: 300px;
   width: 48%
 }
@@ -137,16 +135,14 @@
   background-repeat: no-repeat;
   border: none;
 
+  color: $white;
+
   &:after {
-    display: block;
+    content: "SOUNDSTORM";
+    letter-spacing: 1.3px;
+    font-size: 13.3px;
     position: absolute;
-    left: 60px;
-    background-image: url("https://a-v2.sndcdn.com/assets/images/header/wordmark-d95b0ac.png");
-    background-repeat: no-repeat;
-    background-position: 0px -5px;
-    content: "";
-    height: 100%;
-    width: 100%;
+    left: 65px;
   }
 }
 

@@ -78,7 +78,7 @@ class TrackForm extends React.Component {
 
   header() {
     const headerContent = this.props.formType === 'track-upload' ? (
-      "Upload to Soundcloud" ) : ( "Edit your track" );
+      "Upload to SoundStorm" ) : ( "Edit your track" );
     return (<h2>{headerContent}</h2>);
   }
 

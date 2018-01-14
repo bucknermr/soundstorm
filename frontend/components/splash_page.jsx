@@ -16,7 +16,7 @@ class SplashPage extends React.Component {
             onClick={this.props.showSignup.bind(this)}
             >Upload your own</button>
         </div>
-        <h2 className="splash-index-header">Hear what’s trending for free in the SoundCloud community</h2>
+        <h2 className="splash-index-header">Hear what’s trending for free in the SoundStorm community</h2>
         <SplashIndexContainer />
       </div>
     );
