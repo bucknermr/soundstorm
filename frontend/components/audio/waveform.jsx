@@ -10,9 +10,9 @@ class Waveform extends React.Component {
   }
 
   componentDidMount() {
-    const { audioUrl, position, trackId, height, barHeight, progressColor, waveColor } = this.props;
+    const { track, position, height, barHeight, progressColor, waveColor } = this.props;
     const wavesurfer = WaveSurfer.create({
-      container: `#waveform-${trackId}`,
+      container: `#waveform-${track.id}`,
       barWidth: 2,
       cursorWidth: 0,
       height,
@@ -20,33 +20,35 @@ class Waveform extends React.Component {
       progressColor,
       waveColor
     });
-    wavesurfer.load(audioUrl);
+    track.peaks.length ? wavesurfer.load(track.audioUrl, track.peaks) : wavesurfer.load(track.audioUrl);
     wavesurfer.on('ready', () => {
-      wavesurfer.seekTo(position / wavesurfer.getDuration());
-      this.setOnSeek(wavesurfer, trackId);
+      wavesurfer.seekTo(position / track.duration);
+      this.setOnSeek(wavesurfer, track);
     });
 
     this.setState({ wavesurfer: wavesurfer });
   }
 
-  componentWillReceiveProps({ trackId, audioUrl, position }) {
+  componentWillReceiveProps({ track, position }) {
     const { wavesurfer } = this.state;
     wavesurfer.unAll();
-    if (trackId !== this.props.trackId) {
-      wavesurfer.load(audioUrl);
+    if (track.id !== this.props.track.id) {
+      wavesurfer.load(track.audioUrl);
       wavesurfer.on('ready', () => {
-        wavesurfer.seekTo(position / wavesurfer.getDuration());
-        this.setOnSeek(wavesurfer, trackId);
+        wavesurfer.seekTo(position / track.duration);
+        // wavesurfer.seekTo(position / wavesurfer.getDuration());
+        this.setOnSeek(wavesurfer, track);
       });
     } else {
-      wavesurfer.seekTo(position / wavesurfer.getDuration());
-      this.setOnSeek(wavesurfer, trackId);
+      wavesurfer.seekTo(position / track.duration);
+      this.setOnSeek(wavesurfer, track);
     }
   }
 
-  setOnSeek(wavesurfer, trackId) {
+  setOnSeek(wavesurfer = this.state.wavesurfer, track = this.props.track) {
     wavesurfer.on('seek', float => {
-      this.props.seekTrack(float * wavesurfer.getDuration(), trackId);
+      this.props.seekTrack(float * track.duration, track.id);
+      // this.props.seekTrack(float * wavesurfer.getDuration(), trackId);
     });
   }
 
@@ -56,7 +58,7 @@ class Waveform extends React.Component {
 
   render() {
     return (
-      <div id={`waveform-${this.props.trackId}`} className="waveform">
+      <div id={`waveform-${this.props.track.id}`} className="waveform">
       </div>
     );
   }

@@ -3,8 +3,8 @@ import { seekTrack } from '../../actions/audio_actions';
 import Waveform from './waveform';
 
 
-const mapStateToProps = ({ ui }, { trackId }) => ({
-  position: ui.waveform[trackId],
+const mapStateToProps = ({ ui }, { track }) => ({
+  position: ui.waveform[track.id],
 });
 
 const mapDispatchToProps = dispatch => ({

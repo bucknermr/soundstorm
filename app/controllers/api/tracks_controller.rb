@@ -56,7 +56,7 @@ class Api::TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:title, :description, :audio, :image)
+    params.require(:track).permit(:title, :description, :audio, :image, :peaks, :duration)
   end
 
   def search_params
