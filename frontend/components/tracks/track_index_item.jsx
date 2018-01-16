@@ -23,8 +23,7 @@ const TrackIndexItem = ({ track, artist }) => {
           </Link>
         </span>
         <WaveformContainer
-          audioUrl={track.audioUrl}
-          trackId={track.id}
+          track={track}
           height={60}
           barHeight={1.5}
           progressColor={'#fa5503'}

@@ -1,4 +1,5 @@
 import React from 'react';
+import WaveSurfer from 'wavesurfer.js';
 
 import TrackImage from './track_image';
 import Errors from './errors';
@@ -17,7 +18,9 @@ class TrackForm extends React.Component {
         audioFile: '',
         audioFileName: '',
         imageFile: '',
-        imageUrl: ''
+        imageUrl: '',
+        peaks: '',
+        duration: ''
       };
     }
 
@@ -41,7 +44,29 @@ class TrackForm extends React.Component {
   handleAudioChange(e) {
     const file = e.target.files[0];
     if (file) {
-      this.setState({ audioFile: file, audioFileName: file.name });
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const audioUrl = reader.result;
+
+        const wave = document.createElement('div')
+        wave.setAttribute('id', 'wave');
+        wave.style.display = 'none';
+        document.querySelector('#body').appendChild(wave);
+        const wavesurfer = WaveSurfer.create({ container: '#wave' });
+        wavesurfer.load(audioUrl);
+        wavesurfer.on('ready', () => {
+          const peaks = wavesurfer.backend.getPeaks(500);
+          const duration = wavesurfer.getDuration();
+
+          this.setState({ audioFile: file, audioFileName: file.name, peaks, duration });
+
+          wavesurfer.destroy();
+          wave.remove();
+        });
+      };
+
+      reader.readAsDataURL(file);
     }
   }
 
@@ -59,7 +84,7 @@ class TrackForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { title, description, audioFile, imageFile } = this.state;
+    const { title, description, audioFile, imageFile, peaks, duration } = this.state;
     const { createTrack, updateTrack, formType, track, hideModal } = this.props;
     const formData = new FormData();
 
@@ -69,6 +94,8 @@ class TrackForm extends React.Component {
       formData.append("track[image]", imageFile);
     }
     if (formType === 'track-upload') {
+      formData.append("track[peaks]", peaks);
+      formData.append("track[duration]", duration);
       formData.append("track[audio]", audioFile);
       createTrack(formData).then(() => hideModal());
     } else {

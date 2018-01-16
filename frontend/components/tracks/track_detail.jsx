@@ -43,8 +43,7 @@ class TrackDetail extends React.Component {
           <div>
             <h2 className="track-title">{track.title}</h2>
             <WaveformContainer
-              audioUrl={track.audioUrl}
-              trackId={track.id}
+              track={track}
               height={100}
               barHeight={1.5}
               progressColor={'#fa5503'}
