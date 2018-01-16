@@ -114,9 +114,5 @@ export const deleteTrack = trackId => dispatch => (
 export const searchTracks = term => dispatch => {
   dispatch(trackIndexLoading());
   TracksApiUtil.searchTracks(term)
-    .then(payload => {
-      console.log("payload!", payload);
-      return dispatch(receiveTracks(payload));
-    });
-    // .then(payload => dispatch(receiveTracks(payload)));
+    .then(payload => dispatch(receiveTracks(payload)));
 };

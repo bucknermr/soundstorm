@@ -21,20 +21,7 @@ class Waveform extends React.Component {
       waveColor
     });
 
-    track.peaks.length ? wavesurfer.load(track.audioUrl, track.peaks) : wavesurfer.load(track.audioUrl);
-    wavesurfer.on('ready', () => {
-      if (!track.peaks.length || !track.duration > 0) {
-        console.log('migrating.......');
-        const formData = new FormData();
-        formData.append("track[peaks]", wavesurfer.backend.getPeaks(500));
-        formData.append("track[duration]", wavesurfer.getDuration());
-        this.props.updateTrack(formData, track.id);
-      } else {
-        wavesurfer.seekTo(position / track.duration);
-        this.setOnSeek(wavesurfer, track);
-      }
-    });
-
+    wavesurfer.load(track.audioUrl, track.peaks);
     wavesurfer.seekTo(position / track.duration);
     this.setOnSeek(wavesurfer, track);
 
@@ -46,14 +33,10 @@ class Waveform extends React.Component {
     wavesurfer.unAll();
     if (track.id !== this.props.track.id) {
       wavesurfer.load(track.audioUrl, track.peaks);
-      wavesurfer.on('ready', () => {
-        wavesurfer.seekTo(position / track.duration);
-        this.setOnSeek(wavesurfer, track);
-      });
-    } else {
-      wavesurfer.seekTo(position / track.duration);
-      this.setOnSeek(wavesurfer, track);
     }
+
+    wavesurfer.seekTo(position / track.duration);
+    this.setOnSeek(wavesurfer, track);
   }
 
   setOnSeek(wavesurfer = this.state.wavesurfer, track = this.props.track) {

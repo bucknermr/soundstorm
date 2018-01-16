@@ -1,6 +1,5 @@
 class Track < ApplicationRecord
-  # validates :title, :peaks, presence: true
-  validates :title, presence: true
+  validates :title, :peaks, :duration, presence: true
   has_attached_file :audio
   validates :audio, attachment_presence: true
   validates_attachment_file_name :audio, matches: [/mp3\z/, /wav\z/, /m4a\z/]
