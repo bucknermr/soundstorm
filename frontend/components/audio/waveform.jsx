@@ -20,11 +20,23 @@ class Waveform extends React.Component {
       progressColor,
       waveColor
     });
+
     track.peaks.length ? wavesurfer.load(track.audioUrl, track.peaks) : wavesurfer.load(track.audioUrl);
     wavesurfer.on('ready', () => {
-      wavesurfer.seekTo(position / track.duration);
-      this.setOnSeek(wavesurfer, track);
+      if (!track.peaks.length || !track.duration > 0) {
+        console.log('migrating.......');
+        const formData = new FormData();
+        formData.append("track[peaks]", wavesurfer.backend.getPeaks(500));
+        formData.append("track[duration]", wavesurfer.getDuration());
+        this.props.updateTrack(formData, track.id);
+      } else {
+        wavesurfer.seekTo(position / track.duration);
+        this.setOnSeek(wavesurfer, track);
+      }
     });
+
+    wavesurfer.seekTo(position / track.duration);
+    this.setOnSeek(wavesurfer, track);
 
     this.setState({ wavesurfer: wavesurfer });
   }
@@ -33,10 +45,9 @@ class Waveform extends React.Component {
     const { wavesurfer } = this.state;
     wavesurfer.unAll();
     if (track.id !== this.props.track.id) {
-      wavesurfer.load(track.audioUrl);
+      wavesurfer.load(track.audioUrl, track.peaks);
       wavesurfer.on('ready', () => {
         wavesurfer.seekTo(position / track.duration);
-        // wavesurfer.seekTo(position / wavesurfer.getDuration());
         this.setOnSeek(wavesurfer, track);
       });
     } else {
@@ -48,7 +59,6 @@ class Waveform extends React.Component {
   setOnSeek(wavesurfer = this.state.wavesurfer, track = this.props.track) {
     wavesurfer.on('seek', float => {
       this.props.seekTrack(float * track.duration, track.id);
-      // this.props.seekTrack(float * wavesurfer.getDuration(), trackId);
     });
   }
 

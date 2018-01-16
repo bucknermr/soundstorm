@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20180116012414) do
     t.datetime "image_updated_at"
     t.integer "play_count", default: 0, null: false
     t.float "peaks", default: [], null: false, array: true
-    t.float "duration"
+    t.float "duration", default: 0.0, null: false
     t.index ["artist_id"], name: "index_tracks_on_artist_id"
   end
 
