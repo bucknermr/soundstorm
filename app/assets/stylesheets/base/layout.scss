@@ -53,14 +53,16 @@ textarea {
 
 .modal-content {
   display: flex;
-  // position: absolute;
-  left: 50%;
-  margin-left: -225px;
-  top: 0px;
+  position: absolute;
+
+  margin: 0 auto;
+  top: 75px;
+  left: 0;
+  right: 0;
+
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  margin-top: 75px;
   z-index: 101;
   background: $white;
 
@@ -160,4 +162,8 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+.loading {
+  color: $dark-gray;
 }

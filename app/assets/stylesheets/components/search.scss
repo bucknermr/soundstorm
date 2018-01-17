@@ -1,0 +1,54 @@
+@import '../base/colors.scss';
+@import '../base/layout.scss';
+
+.search-page {
+  @extend .main-content-container;
+  position: relative;
+
+  header {
+    height: 60px;
+    border-bottom: 1px solid $light-gray;
+    margin: 46px 30px 30px 40px;
+
+    display: flex;
+    align-items: flex-end;
+
+    h2 {
+      font-size: 24px;
+      padding-bottom: 5px;
+    }
+  }
+
+  .track-index {
+    margin-left: 270px;
+  }
+}
+
+.search-nav {
+  position: absolute;
+  display: inline-block;
+  top: 105px;
+  left: 40px;
+  width: 220px;
+  font-size: 14px;
+  padding-right: 30px;
+  ul {
+    li {
+      height: 30px;
+      width: 220px;
+      button {
+        padding: 7px;
+        width: 100%;
+        text-align: left;
+        i {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .selected {
+    background-color: $orange;
+    color: white;
+  }
+}

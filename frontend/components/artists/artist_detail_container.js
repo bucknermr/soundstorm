@@ -13,7 +13,8 @@ const mapStateToProps = (state, { match }) => {
 
   return {
     ownPage,
-    artist
+    artist,
+    loading: state.ui.loading.artistDetail
   };
 };
 

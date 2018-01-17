@@ -1,7 +1,7 @@
 json.key_format! camelize: :lower
 
 artists = {};
-
+json.tracks({})
 json.tracks do
   @tracks.each do |track|
     json.set! track.id do
@@ -11,7 +11,7 @@ json.tracks do
     artists[track.artist_id] = track.artist
   end
 end
-
+json.artists({})
 json.artists do
   artists.each do |key, artist|
     json.set! key do

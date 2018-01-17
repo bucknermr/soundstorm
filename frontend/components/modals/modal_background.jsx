@@ -31,10 +31,8 @@ class ModalBackground extends React.Component {
 
   render() {
     return (
-      <div
-        className="modal-background animated fadeIn"
-        onClick={this.handleClick}
-      >
+      <div>
+        <div className="modal-background animated fadeIn" onClick={this.handleClick}></div>
         {this.props.children}
       </div>
     );

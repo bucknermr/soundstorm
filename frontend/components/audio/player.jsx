@@ -72,7 +72,7 @@ class Player extends React.Component {
   }
 
   render () {
-    const { track, position } = this.state;
+    const { track } = this.state;
 
     return (
       <div id="player-container"

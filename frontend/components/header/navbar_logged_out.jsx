@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import SearchFormContainer from './search_form_container';
 
 const NavbarLoggedOut = ({ signinForm, signupForm, uploadLoggedOut }) => (
   <div className='navbar-container'>
@@ -8,22 +9,11 @@ const NavbarLoggedOut = ({ signinForm, signupForm, uploadLoggedOut }) => (
       <NavLink exact to='/' className="home-button navbar-button" >
         Home
       </NavLink>
-      <form className="nav-search-form" >
-        <input
-          type="search"
-          className="nav-search-input"
-          placeholder="Search for artists, bands, tracks"
-        />
-        <button type="submit" className="search-icon">
-          <i className="fa fa-search" aria-hidden="true"></i>
-        </button>
-      </form>
+      <SearchFormContainer />
       <button className="upload-button navbar-button"
         onClick={() => uploadLoggedOut("Please signup to upload your own music!")}>
         Upload
       </button>
-      {/* <NavLink to='/upload' className="upload-button navbar-button" >
-      </NavLink> */}
       <button
         type="button"
         onClick={signinForm}

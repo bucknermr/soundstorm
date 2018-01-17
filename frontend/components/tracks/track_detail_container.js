@@ -6,11 +6,16 @@ import TrackDetail from './track_detail';
 
 const mapStateToProps = ({ entities, ui, session }, { match }) => {
   const playing = parseInt(match.params.trackId) === ui.audio.trackId;
+
+  const track = entities.tracks[match.params.trackId];
+  const trackArtist = track ? entities.artists[track.artistId] : null;
+
   return {
     track: entities.tracks[match.params.trackId],
-    artists: entities.artists,
     currentArtist: session.currentArtist,
-    playing
+    playing,
+    loading: ui.loading.trackDetail,
+    trackArtist
   };
 };
 

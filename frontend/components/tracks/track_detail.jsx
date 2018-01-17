@@ -9,23 +9,74 @@ import InlineTrackStats from './inline_track_stats';
 
 class TrackDetail extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true
+    }
+  }
+
   componentDidMount() {
     this.props.requestTrack(this.props.match.params.trackId);
   }
 
-  componentWillReceiveProps({ track, match }) {
-    if (!track) {
+  componentWillReceiveProps({ track, match, loading }) {
+    if (match.params.trackId !== this.props.match.params.trackId) {
       this.props.requestTrack(match.params.trackId);
+      this.setState({ loading: true })
+    } else if (loading !== this.state.loading) {
+      this.setState({ loading });
     }
   }
 
+  trackHeroContainer() {
+    const { track, trackArtist } = this.props;
+    return (
+      <div className="track-hero-container">
+        {track ? <PlayPauseContainer track={track} /> : null}
+        {trackArtist ? (
+          <Link className="artist-name" to={`/artists/${trackArtist.id}`}>
+          {trackArtist.name}
+        </Link>
+        ) : null}
+        {track ? (
+          <div>
+            <h2 className="track-title">{track.title}</h2>
+            <WaveformContainer
+              track={track}
+              height={100}
+              barHeight={1.5}
+              progressColor={'#fa5503'}
+              waveColor={'#fff'}
+            />
+            <img src={track.imageUrl} />
+          </div>
+        ) : null}
+      </div>
+    )
+  }
+
   render () {
+    const { track, artists, trackEditForm, currentArtist, trackArtist } = this.props;
 
-    const { track, artists, trackEditForm, currentArtist } = this.props;
+    if (this.state.loading) {
+      return (
+        <div>
+          {this.trackHeroContainer()}
+          <section className="track-content-container">
+            <div className="content-main">
+              <div className="track-stats-buttons-container"></div>
+              <div className="artist-info"></div>
+              <div className="track-content-wrapper">
+                <i className="fa fa-spinner fa-pulse fa-3x fa-fw loading"></i>
+              </div>
+              <div className="sidebar-right"></div>
+            </div>
+          </section>
+        </div>
+      )
+    }
 
-    if (!track) { return null; }
-
-    const trackArtist = artists[track.artistId];
     let linkName = trackArtist.name;
     if (linkName.length > 16) {
       linkName = linkName.slice(0, 13) + '...';
@@ -33,26 +84,7 @@ class TrackDetail extends React.Component {
 
     return (
       <div>
-        <div className="track-hero-container">
-          <PlayPauseContainer track={track} />
-
-          <Link className="artist-name" to={`/artists/${track.artistId}`}>
-            {trackArtist.name}
-          </Link>
-          <h2 className="track-title">{track.title}</h2>
-
-          <WaveformContainer
-            audioUrl={track.audioUrl}
-            trackId={track.id}
-            height={100}
-            barHeight={1.5}
-            progressColor={'#fa5503'}
-            waveColor={'#fff'}
-          />
-
-          <img src={track.imageUrl} />
-
-        </div>
+        {this.trackHeroContainer()}
         <section className="track-content-container">
           <CommentFormContainer trackId={track.id} />
           <div className="content-main">
