@@ -2,7 +2,7 @@
 
 # Soundstorm
 
-Welcome to the repository for [SoundStorm](https://soundstorm-soundcloud-clone.herokuapp.com). SoundStorm is a single-page music web application inspired by SoundCloud.
+Welcome to the repository for [SoundStorm](https://soundstorm-music.herokuapp.com). SoundStorm is a single-page music web application inspired by SoundCloud.
 
 SoundStorm was built with a Ruby on Rails backend (2.3.1), and a React (16.1.1) & Redux (3.7.2) frontend framework.
 
